@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+      apiKey: 'AIzaSyCB1IrEuo8F5paiKMBdkkzoTfnLaffrFK4',
+      authDomain: 'fast-and-furious-360a3.firebaseapp.com',
+      databaseURL: 'https://fast-and-furious-360a3.firebaseio.com',
+      projectId: 'fast-and-furious-360a3',
+      storageBucket: 'fast-and-furious-360a3.appspot.com',
+      messagingSenderId: '303272127342'
+  }
 };
 
 /*

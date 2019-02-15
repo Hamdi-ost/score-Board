@@ -1,0 +1,45 @@
+<!-- <div class="scores">
+  <div class="container col-md-6">
+    <h1>{{team1}}</h1>
+    <h2>{{score1}}</h2>
+  </div>
+
+  <div class="container col-md-6">
+    <h1>{{team2}}</h1>
+    <h2>{{score2}}</h2>
+  </div>
+</div> -->
+
+
+<div class="contenedorEquipo" style="background-color: green">
+    <div class="base">
+      <div class="panel panel-superior">
+        <div class="equipo-superior izquierdo">
+        </div>
+        <div class="equipo-superior derecho">
+        </div>
+      </div>
+      <div class="panel marcadores">
+        <div class="equipo-marcador nombre izquierdo">
+          <p class="float-izquierda">{{team1}}</p>
+          <div class="marcador-goles float-derecha">0</div>
+        </div>
+        <div class="marcador-tiempo"><time> <countdown *ngIf="ready" [config]="{leftTime: 120}">$!m!:$!s!</countdown></time></div>
+        <div class="equipo-marcador nombre derecho">
+          <p class="float-derecha">{{team2}}</p>
+          <div class="marcador-goles float-izquierda">1</div>
+        </div>
+      </div>
+      <div  class="panel panel-inferior">
+        <div style="margin-top: 10px" class="marcador-tiempo equipo-inferor izquierdo float-izquierda">
+          {{time1}}</div>
+        <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a><button></button></a></div>
+        <div  style="margin-top: 10px" class=" marcador-tiempo equipo-inferor derecho float-izquierda">
+              {{time2}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+

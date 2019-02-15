@@ -1,0 +1,34 @@
+<div class="contenedorEquipo" style="background-color: green">
+    <div class="base">
+      <div class="panel panel-superior">
+        <div class="equipo-superior izquierdo">
+          <span>{{this.team}}</span>
+        </div>
+      </div>
+      <div class="panel marcadores">
+        <div class="equipo-marcador nombre">
+          <p class="float-izquierda"></p>
+          <div class="float-derecha"></div>
+        </div>
+        <div class="marcador-tiempo"><time> <countdown *ngIf="ready" [config]="{leftTime: 120}">$!m!:$!s!</countdown></time></div>
+        <div class="equipo-marcador nombre">
+          <p class="float-derecha"></p>
+          <div class="float-izquierda"></div>
+        </div>
+      </div>
+      <div  class="panel panel-inferior mission">
+        <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a *ngFor="let a of missionsAccomplished"><button>{{a}}</button></a></div>
+      </div>
+      <div class="panel marcadores">
+        <div class="equipo-marcador nombre">
+          <p class="float-izquierda"></p>
+          <div class="float-derecha"></div>
+        </div>
+        <div class="marcador-tiempo">{{scoreTotal}}</div>
+        <div class="equipo-marcador nombre">
+          <p class="float-derecha"></p>
+          <div class="float-izquierda"></div>
+        </div>
+      </div>
+    </div>
+  </div>
