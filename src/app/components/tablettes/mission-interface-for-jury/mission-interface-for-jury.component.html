@@ -14,7 +14,6 @@
           </div>
           <div class="caption">
             <h2>{{ missions[0].name }}</h2>
-            <p>Mission description</p>
             <div class="input-group input-group-lg">
               <div style="padding: 0" class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg"
@@ -65,7 +64,6 @@
           </div>
           <div class="caption">
             <h2>{{ missions[1].name }}</h2>
-            <p>Mission description</p>
             <div class="input-group input-group-lg">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg"
@@ -116,18 +114,19 @@
           </div>
           <div class="caption">
             <h2>{{ missions[2].name }}</h2>
-            <p>Mission description</p>
             Aller Jaune
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <input
+                    [(ngModel)]="allerJCheck"
                     type="checkbox"
                     aria-label="Checkbox for following text input"
                   />
                 </div>
               </div>
               <input
+                [(ngModel)]="allerJ"
                 type="text"
                 class="form-control"
                 aria-label="Text input with checkbox"
@@ -139,12 +138,14 @@
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <input
+                    [(ngModel)]="allerRCheck"
                     type="checkbox"
                     aria-label="Checkbox for following text input"
                   />
                 </div>
               </div>
               <input
+                [(ngModel)]="allerR"
                 type="text"
                 class="form-control"
                 aria-label="Text input with checkbox"
@@ -156,6 +157,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <input
+                    [(ngModel)]="retourRCheck"
                     type="checkbox"
                     aria-label="Checkbox for following text input"
                   />
@@ -163,6 +165,7 @@
               </div>
               <input
                 type="text"
+                [(ngModel)]="retourR"
                 class="form-control"
                 aria-label="Text input with checkbox"
                 style="padding-bottom: 1.5rem"
@@ -173,12 +176,14 @@
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <input
+                    [(ngModel)]="retourJCheck"
                     type="checkbox"
                     aria-label="Checkbox for following text input"
                   />
                 </div>
               </div>
               <input
+                [(ngModel)]="retourJ"
                 type="text"
                 class="form-control"
                 aria-label="Text input with checkbox"
@@ -221,60 +226,60 @@
           </div>
           <div class="caption">
             <h2>{{ missions[3].name }}</h2>
-            <p>Mission description</p>
-            <div class="input-group input-group-lg">
+            Phase 1
+            <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg"
-                  >Piquets</span
-                >
+                <div class="input-group-text">
+                  <input
+                    [(ngModel)]="phaseCheck[0]"
+                    type="checkbox"
+                    aria-label="Checkbox for following text input"
+                  />
+                </div>
               </div>
               <input
-                [(ngModel)]="piquet[3]"
+              [(ngModel)]="phase[0]"
                 type="text"
                 class="form-control"
-                aria-label="Large"
-                aria-describedby="inputGroup-sizing-sm"
+                aria-label="Text input with checkbox"
               />
             </div>
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label
-                class="form-check-label"
-                for="exampleCheck1"
-                style="margin-left: 1rem"
-                >Phase1</label
-              >
-            </div>
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label
-                class="form-check-label"
-                for="exampleCheck1"
-                style="margin-left: 1rem"
-                >Phase2</label
-              >
-            </div>
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label
-                class="form-check-label"
-                for="exampleCheck1"
-                style="margin-left: 1rem"
-                >Phase3</label
-              >
-            </div>
+            Phase 2
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input
+                    [(ngModel)]="phaseCheck[1]"
+                      type="checkbox"
+                      aria-label="Checkbox for following text input"
+                    />
+                  </div>
+                </div>
+                <input
+                [(ngModel)]="phase[1]"
+                  type="text"
+                  class="form-control"
+                  aria-label="Text input with checkbox"
+                />
+              </div>
+              Phase 3
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <input
+                      [(ngModel)]="phaseCheck[2]"
+                        type="checkbox"
+                        aria-label="Checkbox for following text input"
+                      />
+                    </div>
+                  </div>
+                  <input
+                  [(ngModel)]="phase[2]"
+                    type="text"
+                    class="form-control"
+                    aria-label="Text input with checkbox"
+                  />
+                </div>
             <p>
               <button
                 style="width: 100%"

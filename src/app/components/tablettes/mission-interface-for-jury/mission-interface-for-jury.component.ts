@@ -16,7 +16,18 @@ export class MissionInterfaceForJuryComponent implements OnInit {
   scoreMissionAcc = [];
   scoreToral = 0;
   team;
-  aller;
+
+  allerJCheck;
+  allerRCheck;
+  retourJCheck;
+  retourRCheck;
+  retourJ;
+  retourR;
+  allerJ;
+  allerR;
+
+  phaseCheck = [];
+  phase = [];
 
   constructor(
     private missionsService: MissionsService,
@@ -57,11 +68,65 @@ export class MissionInterfaceForJuryComponent implements OnInit {
   }
 
   validerM3() {
-    console.log(this.aller);
+    let scoreM3 = 0;
+    if (this.allerJCheck) {
+      scoreM3 = scoreM3 + (15 - (this.allerJ * 5));
+    }
+    if (this.allerRCheck) {
+      scoreM3 = scoreM3 + (20 - (this.allerR * 5));
+    }
+     if (this.retourRCheck) {
+      scoreM3 = scoreM3 + (20 - (this.retourR * 5));
+    } if (this.retourJCheck) {
+      scoreM3 = scoreM3 + (15 - (this.retourJ * 5));
+    }
+    if (scoreM3 < 0) {
+      scoreM3 = 0;
+    }
+    this.pourcentage[2] = (scoreM3 * 100) / this.missions[2].score;
+    this.missionsAccomplished.push(this.missions[2].name);
+    this.scoreMissionAcc.push(scoreM3);
+    this.scoreToral = this.scoreToral + scoreM3;
+    const team = {
+       missionsAccomplished: this.missionsAccomplished,
+       scoreMissionAcc: this.scoreMissionAcc,
+       name: this.team,
+       scoreTotal: this.scoreToral
+    };
+    this.scoreMission.UpdateTeams(team);
   }
 
   validerM4() {
-
+    let scoreM4 = 0;
+    if (this.phaseCheck[0]) {
+      scoreM4 = scoreM4 + (25 - (this.phase[0] * 5));
+    }
+    if (this.phaseCheck[1]) {
+      if (this.phase[1] === 0) {
+        scoreM4 = scoreM4 + 25;
+      } else if (this.phase[1] === 4) {
+        scoreM4 = scoreM4 + 5;
+      } else {
+      scoreM4 = scoreM4 + (25 - (this.phase[1] * 5));
+      }
+    }
+    if (this.phaseCheck[2]) {
+      scoreM4 = scoreM4 + (25 - (this.phase[2] * 5));
+    }
+    if (scoreM4 < 0) {
+      scoreM4 = 0;
+    }
+    this.pourcentage[3] = (scoreM4 * 100) / this.missions[3].score;
+    this.missionsAccomplished.push(this.missions[3].name);
+    this.scoreMissionAcc.push(scoreM4);
+    this.scoreToral = this.scoreToral + scoreM4;
+    const team = {
+       missionsAccomplished: this.missionsAccomplished,
+       scoreMissionAcc: this.scoreMissionAcc,
+       name: this.team,
+       scoreTotal: this.scoreToral
+    };
+    this.scoreMission.UpdateTeams(team);
   }
 
   validerEtage2() {
