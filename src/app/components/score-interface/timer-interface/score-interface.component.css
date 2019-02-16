@@ -329,3 +329,30 @@
       text-align: center;
     }
   }
+
+  #stopwatch{
+    border:1px solid rgb(200,200,200);
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'Istok Web', sans-serif;
+  }
+  .large{
+    font-size: 30px;
+    margin: 5px;
+  
+  }
+  .medium{
+    font-size: 20px;
+  }
+  .small{
+    font-size: 30px;
+  }
+  
+  .controlButtons{
+    text-align: center;
+  }
+  .marginClass{
+    margin: 5px;
+    display: inline-block;
+  
+  }

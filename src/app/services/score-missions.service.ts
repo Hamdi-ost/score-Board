@@ -39,14 +39,9 @@ export class ScoreMissionsService {
   }
 
   // Update Team Object
-  UpdateTeams(team: Teams[]) {
-    const itemsRef = this.db.list('teams');
-    itemsRef.set('team 1', team[0]);
-    itemsRef.set('team 2', team[1]);
-    // this.teamRef.update({
-    //   name: team.name,
-    //   score: team.score,
-    // });
+  UpdateTeams(team) {
+    const itemsRef = this.db.list('categories/cat3/teams');
+    itemsRef.set('team1', team);
   }
 
   // Delete Team Object

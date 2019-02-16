@@ -1,3 +1,336 @@
-<p>
-  mission-interface-for-jury works!
-</p>
+<!--  ETAGE 1 -->
+<div style="margin: 2rem 30%">
+  <div class="row">
+    <ul class="thumbnails" *ngIf="missions">
+      <!-- Mission 1-->
+      <li class="span3">
+        <div class="thumbnail" style="padding: 0">
+          <div style="padding:4px">
+            <img
+              alt="300x200"
+              style="width: 100%"
+              src="https://picsum.photos/300/200"
+            />
+          </div>
+          <div class="caption">
+            <h2>{{ missions[0].name }}</h2>
+            <p>Mission description</p>
+            <div class="input-group input-group-lg">
+              <div style="padding: 0" class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg"
+                  >Piquets</span
+                >
+              </div>
+              <input
+                [(ngModel)]="piquet[0]"
+                type="text"
+                class="form-control"
+                aria-label="Large"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+            <p>
+              <button
+                style="width: 100%"
+                type="button"
+                class="btn btn-primary btn-lg"
+                (click)="validerM1M2(0)"
+              >
+                Valider
+              </button>
+            </p>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar bg-success"
+              role="progressbar"
+              [style.width]="pourcentage[0] + '%'"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Mission 2-->
+      <li class="span3">
+        <div class="thumbnail" style="padding: 0">
+          <div style="padding:4px">
+            <img
+              alt="300x200"
+              style="width: 100%"
+              src="https://picsum.photos/300/200"
+            />
+          </div>
+          <div class="caption">
+            <h2>{{ missions[1].name }}</h2>
+            <p>Mission description</p>
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg"
+                  >Piquets</span
+                >
+              </div>
+              <input
+                [(ngModel)]="piquet[1]"
+                type="text"
+                class="form-control"
+                aria-label="Large"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+            <p>
+              <button
+                style="width: 100%"
+                type="button"
+                class="btn btn-primary btn-lg"
+                (click)="validerM1M2(1)"
+              >
+                Valider
+              </button>
+            </p>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar bg-success"
+              role="progressbar"
+              [style.width]="pourcentage[1] + '%'"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Mission 3-->
+      <li class="span3">
+        <div class="thumbnail" style="padding: 0">
+          <div style="padding:4px">
+            <img
+              alt="300x200"
+              style="width: 100%"
+              src="https://picsum.photos/300/200"
+            />
+          </div>
+          <div class="caption">
+            <h2>{{ missions[2].name }}</h2>
+            <p>Mission description</p>
+            Aller Jaune
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input
+                    type="checkbox"
+                    aria-label="Checkbox for following text input"
+                  />
+                </div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Text input with checkbox"
+                style="padding-bottom: 1.5rem"
+              />
+            </div>
+            Aller Rouge
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input
+                    type="checkbox"
+                    aria-label="Checkbox for following text input"
+                  />
+                </div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Text input with checkbox"
+                style="padding-bottom: 1.5rem"
+              />
+            </div>
+            Retour Rouge
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input
+                    type="checkbox"
+                    aria-label="Checkbox for following text input"
+                  />
+                </div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Text input with checkbox"
+                style="padding-bottom: 1.5rem"
+              />
+            </div>
+            Retour Jaune
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input
+                    type="checkbox"
+                    aria-label="Checkbox for following text input"
+                  />
+                </div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Text input with checkbox"
+                style="padding-bottom: 1.5rem"
+              />
+            </div>
+            <p>
+              <button
+                style="width: 100%"
+                type="button"
+                class="btn btn-primary btn-lg"
+                (click)="validerM3(2)"
+              >
+                Valider
+              </button>
+            </p>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar bg-success"
+              role="progressbar"
+              [style.width]="pourcentage[2] + '%'"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Mission 4-->
+      <li class="span3">
+        <div class="thumbnail" style="padding: 0">
+          <div style="padding:4px">
+            <img
+              alt="300x200"
+              style="width: 100%"
+              src="https://picsum.photos/300/200"
+            />
+          </div>
+          <div class="caption">
+            <h2>{{ missions[3].name }}</h2>
+            <p>Mission description</p>
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg"
+                  >Piquets</span
+                >
+              </div>
+              <input
+                [(ngModel)]="piquet[3]"
+                type="text"
+                class="form-control"
+                aria-label="Large"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label
+                class="form-check-label"
+                for="exampleCheck1"
+                style="margin-left: 1rem"
+                >Phase1</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label
+                class="form-check-label"
+                for="exampleCheck1"
+                style="margin-left: 1rem"
+                >Phase2</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label
+                class="form-check-label"
+                for="exampleCheck1"
+                style="margin-left: 1rem"
+                >Phase3</label
+              >
+            </div>
+            <p>
+              <button
+                style="width: 100%"
+                type="button"
+                class="btn btn-primary btn-lg"
+                (click)="validerM4(3)"
+              >
+                Valider
+              </button>
+            </p>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar bg-success"
+              role="progressbar"
+              [style.width]="pourcentage[3] + '%'"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr />
+
+<!--  ETAGE 2 -->
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Nombre de tours</h1>
+    <div class="input-group input-group-lg">
+      <div class="input-group-prepend"></div>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Large"
+        aria-describedby="inputGroup-sizing-sm"
+      />
+      <p>
+        <button
+          style="width: 100%"
+          type="button"
+          class="btn btn-primary btn-lg"
+          (click)="validerEtage2()"
+        >
+          Valider
+        </button>
+      </p>
+    </div>
+  </div>
+</section>
+<hr />
+
+<div style="margin: 0 40%" class="container">
+  <button class="btn btn-success" (click)="reset()">RESET</button>
+</div>

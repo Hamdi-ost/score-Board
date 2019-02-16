@@ -2,7 +2,7 @@
     <div class="base">
       <div class="panel panel-superior">
         <div class="equipo-superior izquierdo">
-          <span>{{this.team}}</span>
+          <span>{{team}}</span>
         </div>
       </div>
       <div class="panel marcadores">
@@ -16,6 +16,11 @@
           <div class="float-izquierda"></div>
         </div>
       </div>
+      <!-- Etage 1-->
+      <div  class="panel panel-inferior mission">
+        <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a *ngFor="let a of missionsAccomplished"><button>{{a}}</button></a></div>
+      </div>
+      <!-- Etage 2-->
       <div  class="panel panel-inferior mission">
         <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a *ngFor="let a of missionsAccomplished"><button>{{a}}</button></a></div>
       </div>
