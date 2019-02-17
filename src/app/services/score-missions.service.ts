@@ -35,9 +35,7 @@ export class ScoreMissionsService {
   addTeam (name) {
     const itemsRef = this.db.list('categories/cat3/teams');
     itemsRef.set( 'team1/name', name);
-
   }
-
 
   startEtage1 () {
     const itemsRef = this.db.list('missionsEtage');

@@ -74,28 +74,35 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       missionsAccomplished: this.missionsAccomplished,
       scoreMissionAcc: this.scoreMissionAcc,
       name: this.team,
-      scoreTotal: this.scoreToral
+      scoreTotal: this.scoreToral,
+      piquetTouches: this.piquet
     };
     this.scoreMission.UpdateTeams(team);
   }
 
   validerM3() {
     let scoreM3 = 0;
+    let piquetsTouches = '';
     if (this.allerJCheck) {
       scoreM3 = scoreM3 + (15 - this.allerJ * 5);
+      piquetsTouches = piquetsTouches + this.allerJ;
     }
     if (this.allerRCheck) {
       scoreM3 = scoreM3 + (20 - this.allerR * 5);
+      piquetsTouches = piquetsTouches + ' | ' + this.allerR;
     }
     if (this.retourRCheck) {
       scoreM3 = scoreM3 + (20 - this.retourR * 5);
+      piquetsTouches = piquetsTouches + ' | ' + this.retourR;
     }
     if (this.retourJCheck) {
       scoreM3 = scoreM3 + (15 - this.retourJ * 5);
+      piquetsTouches = piquetsTouches + ' | ' + this.retourJ;
     }
     if (scoreM3 < 0) {
       scoreM3 = 0;
     }
+    this.piquet.push(piquetsTouches);
     this.pourcentage[2] = (scoreM3 * 100) / this.missions[2].score;
     this.missionsAccomplished.push(this.missions[2].name);
     this.scoreMissionAcc.push(scoreM3);
@@ -104,15 +111,18 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       missionsAccomplished: this.missionsAccomplished,
       scoreMissionAcc: this.scoreMissionAcc,
       name: this.team,
-      scoreTotal: this.scoreToral
+      scoreTotal: this.scoreToral,
+      piquetTouches: this.piquet
     };
     this.scoreMission.UpdateTeams(team);
   }
 
   validerM4() {
     let scoreM4 = 0;
+    let piquetsTouches = '';
     if (this.phaseCheck[0]) {
       scoreM4 = scoreM4 + (25 - this.phase[0] * 5);
+      piquetsTouches = piquetsTouches + this.phase[0];
     }
     if (this.phaseCheck[1]) {
       if (this.phase[1] === 0) {
@@ -122,13 +132,16 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       } else {
         scoreM4 = scoreM4 + (25 - this.phase[1] * 5);
       }
+      piquetsTouches = piquetsTouches + ' | ' + this.phase[1];
     }
     if (this.phaseCheck[2]) {
       scoreM4 = scoreM4 + (25 - this.phase[2] * 5);
+      piquetsTouches = piquetsTouches + ' | ' + this.phase[2];
     }
     if (scoreM4 < 0) {
       scoreM4 = 0;
     }
+    this.piquet.push(piquetsTouches);
     this.pourcentage[3] = (scoreM4 * 100) / this.missions[3].score;
     this.missionsAccomplished.push(this.missions[3].name);
     this.scoreMissionAcc.push(scoreM4);
@@ -137,7 +150,8 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       missionsAccomplished: this.missionsAccomplished,
       scoreMissionAcc: this.scoreMissionAcc,
       name: this.team,
-      scoreTotal: this.scoreToral
+      scoreTotal: this.scoreToral,
+      piquetTouches: this.piquet
     };
     this.scoreMission.UpdateTeams(team);
   }
@@ -146,12 +160,15 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.nbTours++;
     this.scoreMission.UpdateNbTours(this.nbTours);
     this.scoreToral = this.scoreToral + 7;
+    console.log(this.missionsAccomplished);
     const team = {
       missionsAccomplished: this.missionsAccomplished,
       scoreMissionAcc: this.scoreMissionAcc,
       name: this.team,
-      scoreTotal: this.scoreToral
+      scoreTotal: this.scoreToral,
+      piquetTouches: this.piquet
     };
+    console.log(team);
     this.scoreMission.UpdateTeams(team);
   }
 
@@ -189,6 +206,9 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.pourcentage = [0, 0, 0, 0];
     this.scoreToral = 0;
     this.nbTours = 0;
+    this.scoreMissionAcc = [];
+    this.missionsAccomplished = [];
+    this.disabled = [true, true, true, true, true];
     this.scoreMission.UpdateTeams(team);
     this.scoreMission.UpdateNbTours(0);
     this.scoreMission.resetTime();

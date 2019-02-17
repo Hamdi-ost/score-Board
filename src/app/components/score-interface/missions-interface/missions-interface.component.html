@@ -1,8 +1,8 @@
 <div class="contenedorEquipo" style="background-color: green">
     <div class="base">
       <div class="panel panel-superior">
-        <div class="equipo-superior izquierdo">
-          <span>{{team}}</span>
+        <div class="equipo-superior izquierdo" >
+          <span style="width: 50%">{{team}}</span>
         </div>
       </div>
       <div class="panel marcadores">
@@ -19,8 +19,8 @@
       </div>
 
       <!-- Etage 1-->
-      <div *ngIf="missionEtage[0]" class="panel panel-inferior mission">
-        <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a *ngFor="let a of missionsAccomplished"><button>{{a}}</button></a></div>
+      <div *ngIf="missionEtage[0] && missions && piquets" class="panel panel2 panel-inferior mission">
+        <div class="inferior-boton  float-izquierda"><a *ngFor="let a of missionsAccomplished; let i=index"><button>{{a}} ({{missions[i].score}}) <br> {{piquets[i]}} piquets touchees</button></a></div>
       </div>
       <!-- Etage 2-->
       <div  *ngIf="missionEtage[1]" class="panel panel-inferior mission">

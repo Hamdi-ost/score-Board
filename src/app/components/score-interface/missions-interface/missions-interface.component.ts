@@ -22,9 +22,11 @@ export class MissionsInterfaceComponent implements OnInit {
   etages = [];
   missionEtage = [];
   nbTours = [];
+  piquets = [];
 
   constructor(
-    private scoreService: ScoreMissionsService
+    private scoreService: ScoreMissionsService,
+    private missionsService: MissionsService,
   ) {
     this.scoreService
       .ready()
@@ -52,6 +54,7 @@ export class MissionsInterfaceComponent implements OnInit {
         const a = item.payload.toJSON();
         this.Team.push(a as TeamsMission);
       });
+      this.piquets = this.Team[0]['piquetTouches'];
       this.team = this.Team[0].name;
       this.scoreTotal = this.Team[0].scoreTotal;
       if (this.Team[0].missionsAccomplished) {
@@ -59,9 +62,21 @@ export class MissionsInterfaceComponent implements OnInit {
           this.Team[0].missionsAccomplished
         );
       } else {
+        this.piquets = [];
         this.missionsAccomplished = [];
       }
     });
+
+    this.missionsService
+      .GetMissionsList()
+      .snapshotChanges()
+      .subscribe(missions => {
+        this.missions = [];
+        missions.forEach(item => {
+          const b = item.payload.toJSON();
+          this.missions.push(b as Missions);
+        });
+      });
 
     this.scoreService
     .getNbTours()
@@ -91,4 +106,6 @@ export class MissionsInterfaceComponent implements OnInit {
         }
       });
   }
+
+
 }
