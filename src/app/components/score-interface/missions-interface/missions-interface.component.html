@@ -10,20 +10,23 @@
           <p class="float-izquierda"></p>
           <div class="float-derecha"></div>
         </div>
-        <div class="marcador-tiempo"><time> <countdown *ngIf="ready" [config]="{leftTime: 120}">$!m!:$!s!</countdown></time></div>
+        <div *ngIf="etages[0]" class="marcador-tiempo"><time> <countdown  [config]="{leftTime: 140}">$!m!:$!s!</countdown></time></div>
+        <div *ngIf="etages[1]" class="marcador-tiempo"><time> <countdown  [config]="{leftTime: 70}">$!m!:$!s!</countdown></time></div>
         <div class="equipo-marcador nombre">
           <p class="float-derecha"></p>
           <div class="float-izquierda"></div>
         </div>
       </div>
+
       <!-- Etage 1-->
-      <div  class="panel panel-inferior mission">
+      <div *ngIf="missionEtage[0]" class="panel panel-inferior mission">
         <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a *ngFor="let a of missionsAccomplished"><button>{{a}}</button></a></div>
       </div>
       <!-- Etage 2-->
-      <div  class="panel panel-inferior mission">
-        <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a *ngFor="let a of missionsAccomplished"><button>{{a}}</button></a></div>
+      <div  *ngIf="missionEtage[1]" class="panel panel-inferior mission">
+        <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a *ngFor="let a of nbTours"><button>{{a}}</button></a></div>
       </div>
+      <!-- Score -->
       <div class="panel marcadores">
         <div class="equipo-marcador nombre">
           <p class="float-izquierda"></p>

@@ -16,7 +16,6 @@ export class MissionInterfaceForJuryComponent implements OnInit {
   scoreMissionAcc = [];
   scoreToral = 0;
   team;
-
   allerJCheck;
   allerRCheck;
   retourJCheck;
@@ -25,23 +24,32 @@ export class MissionInterfaceForJuryComponent implements OnInit {
   retourR;
   allerJ;
   allerR;
-
   phaseCheck = [];
   phase = [];
+  nbTours = 0;
+  teamName;
+  disabled = [true, true, true, true, true];
 
   constructor(
     private missionsService: MissionsService,
-    private scoreMission: ScoreMissionsService) { }
+    private scoreMission: ScoreMissionsService
+  ) {}
 
   ngOnInit() {
-      this.missionsService.GetMissionsList().snapshotChanges().subscribe(missions => {
+    this.missionsService
+      .GetMissionsList()
+      .snapshotChanges()
+      .subscribe(missions => {
         this.missions = [];
         missions.forEach(item => {
           const b = item.payload.toJSON();
           this.missions.push(b as Missions);
         });
       });
-      this.scoreMission.GetTeamsList().snapshotChanges().subscribe(team => {
+    this.scoreMission
+      .GetTeamsList()
+      .snapshotChanges()
+      .subscribe(team => {
         team.forEach(item => {
           const b = item.payload.toJSON();
           this.team = b['name'];
@@ -49,8 +57,12 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       });
   }
 
+  addTeam() {
+    this.scoreMission.addTeam(this.teamName);
+  }
+
   validerM1M2(i) {
-    let scorei = this.missions[i].score - (this.piquet[i] * 5);
+    let scorei = this.missions[i].score - this.piquet[i] * 5;
     if (scorei < 0) {
       scorei = 0;
     }
@@ -59,10 +71,10 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.scoreMissionAcc.push(scorei);
     this.scoreToral = this.scoreToral + scorei;
     const team = {
-       missionsAccomplished: this.missionsAccomplished,
-       scoreMissionAcc: this.scoreMissionAcc,
-       name: this.team,
-       scoreTotal: this.scoreToral
+      missionsAccomplished: this.missionsAccomplished,
+      scoreMissionAcc: this.scoreMissionAcc,
+      name: this.team,
+      scoreTotal: this.scoreToral
     };
     this.scoreMission.UpdateTeams(team);
   }
@@ -70,15 +82,16 @@ export class MissionInterfaceForJuryComponent implements OnInit {
   validerM3() {
     let scoreM3 = 0;
     if (this.allerJCheck) {
-      scoreM3 = scoreM3 + (15 - (this.allerJ * 5));
+      scoreM3 = scoreM3 + (15 - this.allerJ * 5);
     }
     if (this.allerRCheck) {
-      scoreM3 = scoreM3 + (20 - (this.allerR * 5));
+      scoreM3 = scoreM3 + (20 - this.allerR * 5);
     }
-     if (this.retourRCheck) {
-      scoreM3 = scoreM3 + (20 - (this.retourR * 5));
-    } if (this.retourJCheck) {
-      scoreM3 = scoreM3 + (15 - (this.retourJ * 5));
+    if (this.retourRCheck) {
+      scoreM3 = scoreM3 + (20 - this.retourR * 5);
+    }
+    if (this.retourJCheck) {
+      scoreM3 = scoreM3 + (15 - this.retourJ * 5);
     }
     if (scoreM3 < 0) {
       scoreM3 = 0;
@@ -88,10 +101,10 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.scoreMissionAcc.push(scoreM3);
     this.scoreToral = this.scoreToral + scoreM3;
     const team = {
-       missionsAccomplished: this.missionsAccomplished,
-       scoreMissionAcc: this.scoreMissionAcc,
-       name: this.team,
-       scoreTotal: this.scoreToral
+      missionsAccomplished: this.missionsAccomplished,
+      scoreMissionAcc: this.scoreMissionAcc,
+      name: this.team,
+      scoreTotal: this.scoreToral
     };
     this.scoreMission.UpdateTeams(team);
   }
@@ -99,7 +112,7 @@ export class MissionInterfaceForJuryComponent implements OnInit {
   validerM4() {
     let scoreM4 = 0;
     if (this.phaseCheck[0]) {
-      scoreM4 = scoreM4 + (25 - (this.phase[0] * 5));
+      scoreM4 = scoreM4 + (25 - this.phase[0] * 5);
     }
     if (this.phaseCheck[1]) {
       if (this.phase[1] === 0) {
@@ -107,11 +120,11 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       } else if (this.phase[1] === 4) {
         scoreM4 = scoreM4 + 5;
       } else {
-      scoreM4 = scoreM4 + (25 - (this.phase[1] * 5));
+        scoreM4 = scoreM4 + (25 - this.phase[1] * 5);
       }
     }
     if (this.phaseCheck[2]) {
-      scoreM4 = scoreM4 + (25 - (this.phase[2] * 5));
+      scoreM4 = scoreM4 + (25 - this.phase[2] * 5);
     }
     if (scoreM4 < 0) {
       scoreM4 = 0;
@@ -121,16 +134,38 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.scoreMissionAcc.push(scoreM4);
     this.scoreToral = this.scoreToral + scoreM4;
     const team = {
-       missionsAccomplished: this.missionsAccomplished,
-       scoreMissionAcc: this.scoreMissionAcc,
-       name: this.team,
-       scoreTotal: this.scoreToral
+      missionsAccomplished: this.missionsAccomplished,
+      scoreMissionAcc: this.scoreMissionAcc,
+      name: this.team,
+      scoreTotal: this.scoreToral
     };
     this.scoreMission.UpdateTeams(team);
   }
 
   validerEtage2() {
+    this.nbTours++;
+    this.scoreMission.UpdateNbTours(this.nbTours);
+    this.scoreToral = this.scoreToral + 7;
+    const team = {
+      missionsAccomplished: this.missionsAccomplished,
+      scoreMissionAcc: this.scoreMissionAcc,
+      name: this.team,
+      scoreTotal: this.scoreToral
+    };
+    this.scoreMission.UpdateTeams(team);
+  }
 
+  startEtage1() {
+    this.disabled[0] = false;
+    this.disabled[1] = false;
+    this.disabled[2] = false;
+    this.disabled[3] = false;
+    this.scoreMission.startEtage1();
+  }
+
+  startEtage2() {
+    this.disabled[4] = false;
+    this.scoreMission.startEtage2();
   }
 
   reset() {
@@ -139,8 +174,24 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       scoreMissionAcc: [],
       name: this.team,
       scoreTotal: 0
-   };
-   this.scoreMission.UpdateTeams(team);
+    };
+    this.allerJCheck = false;
+    this.allerRCheck = false;
+    this.retourJCheck = false;
+    this.retourRCheck = false;
+    this.retourJ = '';
+    this.retourR = '';
+    this.allerJ = '';
+    this.allerR = '';
+    this.phaseCheck = [];
+    this.phase = [];
+    this.piquet = [];
+    this.pourcentage = [0, 0, 0, 0];
+    this.scoreToral = 0;
+    this.nbTours = 0;
+    this.scoreMission.UpdateTeams(team);
+    this.scoreMission.UpdateNbTours(0);
+    this.scoreMission.resetTime();
+    this.scoreMission.resetEtage();
   }
-
 }

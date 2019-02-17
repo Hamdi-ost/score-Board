@@ -1,0 +1,9 @@
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.span3 {
+    width: 20%;
+    height: auto;
+}

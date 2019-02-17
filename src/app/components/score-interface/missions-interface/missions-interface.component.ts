@@ -19,16 +19,26 @@ export class MissionsInterfaceComponent implements OnInit {
   ready;
   scoreTotal = 0;
   missions: Missions[];
+  etages = [];
+  missionEtage = [];
+  nbTours = [];
 
   constructor(
-    private scoreService: ScoreMissionsService,
-    private missionsService: MissionsService
+    private scoreService: ScoreMissionsService
   ) {
     this.scoreService
       .ready()
       .snapshotChanges()
       .subscribe(data => {
-        this.ready = data[0].payload.toJSON();
+        this.etages[0] = data[0].payload.toJSON();
+        this.etages[1] = data[1].payload.toJSON();
+      });
+      this.scoreService
+      .missionEtage()
+      .snapshotChanges()
+      .subscribe(data => {
+        this.missionEtage[0] = data[0].payload.toJSON();
+        this.missionEtage[1] = data[1].payload.toJSON();
       });
   }
 
@@ -52,6 +62,18 @@ export class MissionsInterfaceComponent implements OnInit {
         this.missionsAccomplished = [];
       }
     });
+
+    this.scoreService
+    .getNbTours()
+    .snapshotChanges()
+    .subscribe(data => {
+       if (data[0].payload.toJSON() !== 0) {
+        this.nbTours.push(data[0].payload.toJSON());
+       } else {
+        this.nbTours = [];
+       }
+    });
+
   }
 
   dataState() {
