@@ -13,19 +13,7 @@ export class ScoreService {
   // Inject AngularFireDatabase Dependency in Constructor
   constructor(private db: AngularFireDatabase) {}
 
-  // Create Team
-  AddTeam(team: Teams) {
-    this.teamsRef.push({
-      name: team.name,
-      score: team.score,
-    });
-  }
 
-  // Fetch Single Team Object
-  GetTeam(id: string) {
-    this.teamRef = this.db.object('teams/' + id);
-    return this.teamRef;
-  }
 
   // Fetch Teams List
   GetTeamsList() {
@@ -38,20 +26,51 @@ export class ScoreService {
     return this.teamsRef;
   }
 
+  end() {
+    this.teamsRef = this.db.list('end');
+    return this.teamsRef;
+  }
+
+  setReady() {
+    const itemsRef = this.db.list('ready');
+    itemsRef.set('ready', true);
+  }
+
+  setDistance(distance) {
+    const itemsRef = this.db.list('categories/cat1/teams');
+    itemsRef.set('teamA/distance', distance);
+  }
+
   // Update Team Object
   UpdateTeams(team: Teams[]) {
     const itemsRef = this.db.list('teams');
     itemsRef.set('team 1', team[0]);
     itemsRef.set('team 2', team[1]);
-    // this.teamRef.update({
-    //   name: team.name,
-    //   score: team.score,
-    // });
   }
 
-  // Delete Team Object
-  DeleteTeam(id: string) {
-    this.teamRef = this.db.object('teams/' + id);
-    this.teamRef.remove();
+  stopTimerTeam1() {
+    const itemsRef = this.db.list('stopTimer');
+    itemsRef.set('team1', false);
   }
+
+  setBonus1 () {
+    const itemsRef = this.db.list('categories/cat1/teams');
+    itemsRef.set('teamA/bonus1', true);
+  }
+
+  setBonus2 () {
+    const itemsRef = this.db.list('categories/cat1/teams');
+    itemsRef.set('teamA/bonus2', true);
+  }
+
+  getBonus1 () {
+    this.teamsRef = this.db.list('categories/cat1/teams/teamA');
+    return this.teamsRef;
+  }
+
+  getBonus2 () {
+    this.teamsRef = this.db.list('categories/cat1/teams/teamA');
+    return this.teamsRef;
+  }
+
 }

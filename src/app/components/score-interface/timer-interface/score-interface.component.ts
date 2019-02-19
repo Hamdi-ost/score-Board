@@ -17,6 +17,9 @@ export class ScoreInterfaceComponent implements OnInit {
   time1;
   time2;
   ready;
+  end;
+  bonusTeamA = 0;
+  bonusTeamB = 0;
   // ---------------------- //
   controlBtnText = 'Start';
   hour = 0;
@@ -29,6 +32,14 @@ export class ScoreInterfaceComponent implements OnInit {
   intervalId;
 
   constructor(private scoreService: ScoreService) {
+    this.bonusTeamA = this.bonusTeamA - 5;
+    this.bonusTeamB = this.bonusTeamB - 5;
+    if (this.bonusTeamA < 0) {
+      this.bonusTeamA = 0 ;
+    }
+    if (this.bonusTeamB < 0) {
+      this.bonusTeamB = 0 ;
+    }
     this.scoreService
       .ready()
       .snapshotChanges()
@@ -36,6 +47,12 @@ export class ScoreInterfaceComponent implements OnInit {
         this.ready = data[0].payload.toJSON();
         this.onStart();
       });
+    this.scoreService
+    .end()
+    .snapshotChanges()
+    .subscribe(end => {
+      this.end = end[0].payload.toJSON();
+    });
   }
 
   ngOnInit() {
@@ -52,6 +69,13 @@ export class ScoreInterfaceComponent implements OnInit {
       this.team2 = this.Team[1].name;
       this.time1 = this.Team[0].time;
       this.time2 = this.Team[1].time;
+    });
+    this.scoreService.getBonus1().snapshotChanges().subscribe(bonus1 => {
+      const bon = bonus1[0].payload.toJSON();
+      if (bon) { this.bonusTeamA = this.bonusTeamA + 5; }
+    });
+    this.scoreService.getBonus2().snapshotChanges().subscribe(bonus2 => {
+      if (bonus2[0].payload.toJSON()) { this.bonusTeamA = this.bonusTeamA + 5; }
     });
   }
 
@@ -92,6 +116,9 @@ export class ScoreInterfaceComponent implements OnInit {
     this.pause = true;
     this.controlBtnText = 'Resume';
     clearInterval(this.intervalId);
+    console.log(this.pause);
+    console.log(this.controlBtnText);
+    console.log(this.intervalId);
   }
   onResume() {
     this.controlBtnText = 'Stop';

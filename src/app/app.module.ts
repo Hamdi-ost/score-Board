@@ -41,7 +41,7 @@ const routes: Routes = [
     FormsModule,
     CountdownModule
   ],
-  providers: [],
+  providers: [ScoreInterfaceComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

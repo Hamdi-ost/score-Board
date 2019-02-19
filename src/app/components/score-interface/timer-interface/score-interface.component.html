@@ -1,65 +1,96 @@
 <div class="contenedorEquipo" style="background-color: green">
-    <div class="base">
-      <div class="panel panel-superior">
-        <div class="equipo-superior izquierdo">
-        </div>
-        <div class="equipo-superior derecho">
+  <div class="base">
+    <div class="panel panel-superior">
+      <div class="equipo-superior izquierdo"></div>
+      <div class="equipo-superior derecho"></div>
+    </div>
+    <div class="panel marcadores">
+      <div class="equipo-marcador nombre izquierdo">
+        <p class="float-izquierda">{{ team1 }}</p>
+      </div>
+      <div class="marcador-tiempo">
+        <time>
+          <countdown *ngIf="ready" [config]="{ leftTime: 120 }"
+            >$!m!:$!s!</countdown
+          ></time
+        >
+      </div>
+      <div class="equipo-marcador nombre derecho">
+        <p class="float-derecha">{{ team2 }}</p>
+      </div>
+    </div>
+    <div class="panel panel-inferior">
+      <div
+        style="margin-top: 10px"
+        class="marcador-tiempo equipo-inferor izquierdo float-izquierda"
+      >
+        <div *ngIf="ready">
+          <div class="marginClass">
+            <span class="large"> {{ minute }}</span>
+            <span class="medium">m</span>
+          </div>
+          <div class="marginClass">
+            <span class="large"> {{ second }}</span>
+            <span class="medium">s</span>
+          </div>
+          <div class="marginClass">
+            <span class="small" *ngIf="millisecond < 10">0</span>
+            <span class="small"> {{ millisecond }}</span>
+          </div>
+          <span *ngIf="bonusTeamA !== 0">(-{{bonusTeamA}} secondes)</span>
         </div>
       </div>
-      <div class="panel marcadores">
-        <div class="equipo-marcador nombre izquierdo">
-          <p class="float-izquierda">{{team1}}</p>
-        </div>
-        <div class="marcador-tiempo"><time> <countdown *ngIf="ready" [config]="{leftTime: 120}">$!m!:$!s!</countdown></time></div>
-        <div class="equipo-marcador nombre derecho">
-          <p class="float-derecha">{{team2}}</p>
+      <div style="margin-top: 10px" class="inferior-boton float-izquierda">
+        <a><button></button></a>
+      </div>
+      <div
+        style="margin-top: 10px"
+        class=" marcador-tiempo equipo-inferor derecho float-izquierda"
+      >
+        <div *ngIf="ready">
+          <div class="marginClass">
+            <span class="large"> {{ minute }}</span>
+            <span class="medium">m</span>
+          </div>
+          <div class="marginClass">
+            <span class="large"> {{ second }}</span>
+            <span class="medium">s</span>
+          </div>
+          <div class="marginClass">
+            <span class="small" *ngIf="millisecond < 10">0</span>
+            <span class="small"> {{ millisecond }}</span>
+          </div>
+          <span *ngIf="bonusTeamB !== 0" >(-{{bonusTeamB}} secondes)</span>
         </div>
       </div>
-      <div  class="panel panel-inferior">
-        <div style="margin-top: 10px" class="marcador-tiempo equipo-inferor izquierdo float-izquierda">
-          <div *ngIf="ready">
-            <div class="marginClass">
-              <span class="large"> {{minute}}</span>
-              <span class="medium">m</span>
-            </div>
-            <div class="marginClass">
-              <span class="large"> {{second}}</span>
-              <span class="medium">s</span>
-            </div>
-            <div class="marginClass">
-              <span class="small" *ngIf="millisecond<10">0</span>
-              <span class="small"> {{millisecond}}</span>
-            </div>
-          </div></div>
-        <div style="margin-top: 10px" class="inferior-boton float-izquierda"><a><button></button></a></div>
-        <div  style="margin-top: 10px" class=" marcador-tiempo equipo-inferor derecho float-izquierda">
-          <div *ngIf="ready">
-           <div class="marginClass">
-                 <span  class="large">  {{minute}}</span >
-                 <span  class="medium">m</span>
-           </div>
-           <div class="marginClass">
-                <span class="large">   {{second}}</span>
-                <span class="medium">s</span>
-           </div>
-            <div class="marginClass">
-                <span class="small"  *ngIf="millisecond<10">0</span>
-                <span class="small">   {{millisecond}}</span>
-            </div>
-        </div>
-        </div>
+    </div>
+    <div *ngIf="end" class="panel marcadores">
+      <div class="equipo-marcador nombre score">
+        <p class="float-izquierda"> Temps: 02:12 - distance: 12m</p>
+      </div>
+      <div class="marcador-tiempo">
+      </div>
+      <div class="equipo-marcador nombre score">
+        <p class="float-derecha">{{ team2 }}</p>
       </div>
     </div>
   </div>
-
-
-  <div class="container">
-    <div class="controlButtons">
-         <button class="btn btn-primary" *ngIf="!start" (click)="onStart()"><strong>Start</strong></button>
-        <button class="btn btn-primary" *ngIf="start" (click)=" pause ? onResume():onPause()"><strong>{{controlBtnText}}</strong></button>
-        <button class="btn btn-default" (click)="reset()"><strong>Reset</strong></button>
-    </div>
 </div>
 
- 
-
+<div class="container">
+  <div class="controlButtons">
+    <button class="btn btn-primary" *ngIf="!start" (click)="onStart()">
+      <strong>Start</strong>
+    </button>
+    <button
+      class="btn btn-primary"
+      *ngIf="start"
+      (click)="pause ? onResume() : onPause()"
+    >
+      <strong>{{ controlBtnText }}</strong>
+    </button>
+    <button class="btn btn-default" (click)="reset()">
+      <strong>Reset</strong>
+    </button>
+  </div>
+</div>

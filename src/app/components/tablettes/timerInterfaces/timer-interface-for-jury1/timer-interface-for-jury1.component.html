@@ -1,0 +1,15 @@
+<div class="container">
+    <button class="btn btn-success" (click)="addBonus1()">BONUS1</button>
+    <button class="btn btn-success" (click)="addBonus2()">BONUS2</button>
+</div>
+
+<div class="container">
+    <div class="controlButtons">
+         <button class="btn btn-primary" *ngIf="!interfaceTimer.start" (click)="interfaceTimer.onStart()"><strong>Start</strong></button>
+        <button class="btn btn-primary" *ngIf="interfaceTimer.start" (click)=" interfaceTimer.pause ? interfaceTimer.onResume():interfaceTimer.onPause()"><strong>{{interfaceTimer.controlBtnText}}</strong></button>
+        <button class="btn btn-default" (click)="interfaceTimer.reset()"><strong>Reset</strong></button>
+    </div>
+</div>
+
+<button class="btn btn-primary" *ngIf="interfaceTimer.start" (click)="onPause()"><strong>{{interfaceTimer.controlBtnText}}</strong></button>
+
