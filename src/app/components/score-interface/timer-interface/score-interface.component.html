@@ -10,7 +10,7 @@
       </div>
       <div class="marcador-tiempo">
         <time>
-          <countdown *ngIf="ready" [config]="{ leftTime: 120 }"
+          <countdown *ngIf="ready" [config]="{ leftTime: 30 }"
             >$!m!:$!s!</countdown
           ></time
         >
@@ -27,11 +27,11 @@
         <div *ngIf="ready">
           <div class="marginClass">
             <span class="large"> {{ minute }}</span>
-            <span class="medium">m</span>
+            <span class="large">:</span>
           </div>
           <div class="marginClass">
             <span class="large"> {{ second }}</span>
-            <span class="medium">s</span>
+            <span class="large">:</span>
           </div>
           <div class="marginClass">
             <span class="small" *ngIf="millisecond < 10">0</span>
@@ -49,48 +49,30 @@
       >
         <div *ngIf="ready">
           <div class="marginClass">
-            <span class="large"> {{ minute }}</span>
-            <span class="medium">m</span>
+            <span class="large"> {{ minuteB }}</span>
+            <span class="large">:</span>
           </div>
           <div class="marginClass">
-            <span class="large"> {{ second }}</span>
-            <span class="medium">s</span>
+            <span class="large"> {{ secondB }}</span>
+            <span class="large">:</span>
           </div>
           <div class="marginClass">
             <span class="small" *ngIf="millisecond < 10">0</span>
-            <span class="small"> {{ millisecond }}</span>
+            <span class="small"> {{ millisecondB }}</span>
           </div>
           <span *ngIf="bonusTeamB !== 0" >(-{{bonusTeamB}} secondes)</span>
         </div>
       </div>
     </div>
-    <div *ngIf="end" class="panel marcadores">
+    <div *ngIf="end" class="panel marcadores" >
       <div class="equipo-marcador nombre score">
-        <p class="float-izquierda"> Temps: 02:12 - distance: 12m</p>
+        <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamA == 0"> Temps: {{finalTimeTeamA}}</span> <span *ngIf="distanceTeamA != 0"> - Distance: {{distanceTeamA}}m</span></p>
       </div>
       <div class="marcador-tiempo">
       </div>
       <div class="equipo-marcador nombre score">
-        <p class="float-derecha">{{ team2 }}</p>
-      </div>
+          <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamB == 0"> Temps: {{finalTimeTeamB}}</span> <span *ngIf="distanceTeamB != 0"> - Distance: {{distanceTeamB}}m</span></p>
+        </div>
     </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="controlButtons">
-    <button class="btn btn-primary" *ngIf="!start" (click)="onStart()">
-      <strong>Start</strong>
-    </button>
-    <button
-      class="btn btn-primary"
-      *ngIf="start"
-      (click)="pause ? onResume() : onPause()"
-    >
-      <strong>{{ controlBtnText }}</strong>
-    </button>
-    <button class="btn btn-default" (click)="reset()">
-      <strong>Reset</strong>
-    </button>
   </div>
 </div>

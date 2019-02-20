@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScoreService } from 'src/app/services/score.service';
 
 @Component({
   selector: 'app-timer-interface-for-jury2',
@@ -6,10 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timer-interface-for-jury2.component.css']
 })
 export class TimerInterfaceForJury2Component implements OnInit {
+  distance;
 
-  constructor() { }
+  constructor(
+    private scoreService: ScoreService
+  ) {
+  }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  addBonus1() {
+    this.scoreService.setBonus1TeamB(true);
+  }
+
+  addBonus2() {
+    this.scoreService.setBonus2TeamB(true);
+  }
+
+  addDistance() {
+    this.scoreService.setDistanceTeamB(this.distance);
+  }
+
+  pauseTimer () {
+    this.scoreService.stopTimerTeamB(true);
   }
 
 }

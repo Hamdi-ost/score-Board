@@ -37,9 +37,6 @@ export class TimerService {
     this.pause = true;
     this.controlBtnText = 'Resume';
     clearInterval(this.intervalId);
-    console.log(this.pause);
-    console.log(this.controlBtnText);
-    console.log(this.intervalId);
   }
   onResume() {
     this.controlBtnText = 'Stop';

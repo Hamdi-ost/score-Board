@@ -1,3 +1,71 @@
-<p>
-  timer-interface-for-jury2 works!
-</p>
+<div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <a (click)="addBonus1()">
+          <img
+            class="rounded-circle btn btn-success"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            alt="Generic placeholder image"
+            width="140"
+            height="140"
+          />
+        </a>
+        <h2>Bonus 1</h2>
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-lg-4 col-md-4">
+        <a (click)="pauseTimer()">
+          <img
+            class="rounded-circle btn btn-danger"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            alt="Generic placeholder image"
+            width="140"
+            height="140"
+          />
+        </a>
+        <h2>Stop Timer</h2>
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-lg-4 col-md-4">
+        <a (click)="addBonus2()">
+          <img
+            class="rounded-circle btn btn-success"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            alt="Generic placeholder image"
+            width="140"
+            height="140"
+          />
+        </a>
+        <h2>Bonus 2</h2>
+      </div>
+      <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
+    <br /><br />
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-6">
+        <div class="input-group input-group-lg">
+          <div style="padding: 0" class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg"
+              >Distance</span
+            >
+          </div>
+          <input
+            [(ngModel)]="distance"
+            type="text"
+            class="form-control"
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+          <button class="btn btn-primary" (click)="addDistance()">
+            Valider
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+
+

@@ -362,3 +362,19 @@
     display: inline-block;
   
   }
+
+  .countdown:before {
+    content: '321';
+
+    font-family:monospace;
+    display:inline-block;
+    width:1ch;
+    overflow:hidden;
+
+    animation:countdowns 3s steps(3) infinite;
+}
+
+@keyframes countdowns {
+    0% {text-indent:0}
+    100% {text-indent:-3ch;}
+}

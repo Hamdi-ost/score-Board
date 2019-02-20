@@ -1,15 +1,79 @@
-<div class="container">
-    <button class="btn btn-success" (click)="addBonus1()">BONUS1</button>
-    <button class="btn btn-success" (click)="addBonus2()">BONUS2</button>
-</div>
-
-<div class="container">
-    <div class="controlButtons">
-         <button class="btn btn-primary" *ngIf="!interfaceTimer.start" (click)="interfaceTimer.onStart()"><strong>Start</strong></button>
-        <button class="btn btn-primary" *ngIf="interfaceTimer.start" (click)=" interfaceTimer.pause ? interfaceTimer.onResume():interfaceTimer.onPause()"><strong>{{interfaceTimer.controlBtnText}}</strong></button>
-        <button class="btn btn-default" (click)="interfaceTimer.reset()"><strong>Reset</strong></button>
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <a (click)="addBonus1()">
+          <img
+            class="rounded-circle btn btn-success"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            alt="Generic placeholder image"
+            width="140"
+            height="140"
+          />
+        </a>
+        <h2>Bonus 1</h2>
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-lg-4 col-md-4">
+        <a (click)="pauseTimer()">
+          <img
+            class="rounded-circle btn btn-danger"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            alt="Generic placeholder image"
+            width="140"
+            height="140"
+          />
+        </a>
+        <h2>Stop Timer</h2>
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-lg-4 col-md-4">
+        <a (click)="addBonus2()">
+          <img
+            class="rounded-circle btn btn-success"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            alt="Generic placeholder image"
+            width="140"
+            height="140"
+          />
+        </a>
+        <h2>Bonus 2</h2>
+      </div>
+      <!-- /.col-lg-4 -->
     </div>
-</div>
+    <!-- /.row -->
+    <br /><br />
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-6">
+        <div class="input-group input-group-lg">
+          <div style="padding: 0" class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg"
+              >Distance</span
+            >
+          </div>
+          <input
+            [(ngModel)]="distance"
+            type="text"
+            class="form-control"
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+          <button class="btn btn-primary" (click)="addDistance()">
+            Valider
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br />
 
-<button class="btn btn-primary" *ngIf="interfaceTimer.start" (click)="onPause()"><strong>{{interfaceTimer.controlBtnText}}</strong></button>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button class="btn btn-success" style="margin-right: 5px" (click)="start()">START</button>
+      <button class="btn btn-warning" style="margin-right: 5px" (click)="reset()">RESET</button>
+      <button class="btn btn-danger" (click)="result()">SHOW RESULT</button>
+    </div>
+  </div>
 
