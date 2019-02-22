@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MissionsService } from 'src/app/services/missions.service';
 import { Missions } from 'src/app/shared/missions';
 import { ScoreMissionsService } from 'src/app/services/score-missions.service';
+import { ScoreService } from 'src/app/services/score.service';
 
 @Component({
   selector: 'app-mission-interface-for-jury',
@@ -32,7 +33,8 @@ export class MissionInterfaceForJuryComponent implements OnInit {
 
   constructor(
     private missionsService: MissionsService,
-    private scoreMission: ScoreMissionsService
+    private scoreMission: ScoreMissionsService,
+    private scoreService: ScoreService
   ) {}
 
   ngOnInit() {
@@ -160,7 +162,6 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.nbTours++;
     this.scoreMission.UpdateNbTours(this.nbTours);
     this.scoreToral = this.scoreToral + 7;
-    console.log(this.missionsAccomplished);
     const team = {
       missionsAccomplished: this.missionsAccomplished,
       scoreMissionAcc: this.scoreMissionAcc,
@@ -177,7 +178,10 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.disabled[1] = false;
     this.disabled[2] = false;
     this.disabled[3] = false;
-    this.scoreMission.startEtage1();
+    this.scoreService.setCube(true);
+    setTimeout(() => {
+      this.scoreMission.startEtage1();
+    }, 5000);
   }
 
   startEtage2() {
@@ -213,5 +217,6 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.scoreMission.UpdateNbTours(0);
     this.scoreMission.resetTime();
     this.scoreMission.resetEtage();
+    this.scoreService.setCube(false);
   }
 }

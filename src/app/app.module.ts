@@ -15,6 +15,7 @@ import { TimerInterfaceForJury2Component } from './components/tablettes/timerInt
 // tslint:disable-next-line:max-line-length
 import { TimerInterfaceForJury1Component } from './components/tablettes/timerInterfaces/timer-interface-for-jury1/timer-interface-for-jury1.component';
 import { MissionsInterfaceComponent } from './components/score-interface/missions-interface/missions-interface.component';
+import { CubeComponent } from './components/cube/cube.component';
 
 const routes: Routes = [
   {path: 'timerScore', component: ScoreInterfaceComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
     MissionInterfaceForJuryComponent,
     TimerInterfaceForJury2Component,
     TimerInterfaceForJury1Component,
-    MissionsInterfaceComponent
+    MissionsInterfaceComponent,
+    CubeComponent
   ],
   imports: [
     BrowserModule,

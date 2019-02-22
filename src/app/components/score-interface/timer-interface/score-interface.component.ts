@@ -45,7 +45,7 @@ export class ScoreInterfaceComponent implements OnInit {
   intervalIdB;
 
   constructor(private scoreService: ScoreService) {
-    this.scoreService
+      this.scoreService
       .ready()
       .snapshotChanges()
       .subscribe(data => {

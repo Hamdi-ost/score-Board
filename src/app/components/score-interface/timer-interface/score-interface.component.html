@@ -1,4 +1,4 @@
-<div class="contenedorEquipo" style="background-color: green">
+<div class="contenedorEquipo" style="background-color: #009933">
   <div class="base">
     <div class="panel panel-superior">
       <div class="equipo-superior izquierdo"></div>
@@ -10,7 +10,7 @@
       </div>
       <div class="marcador-tiempo">
         <time>
-          <countdown *ngIf="ready" [config]="{ leftTime: 30 }"
+          <countdown *ngIf="ready" [config]="{ leftTime: 120 }"
             >$!m!:$!s!</countdown
           ></time
         >
@@ -76,3 +76,5 @@
     </div>
   </div>
 </div>
+
+<app-cube></app-cube>

@@ -42,6 +42,16 @@ export class ScoreService {
     itemsRef.set('ready', ready);
   }
 
+  setCube(ready) {
+    const itemsRef = this.db.list('cube');
+    itemsRef.set('cube', ready);
+  }
+
+  cube() {
+    this.teamsRef = this.db.list('cube');
+    return this.teamsRef;
+  }
+
   setDistanceTeamA(distance) {
     const itemsRef = this.db.list('categories/cat1/teams');
     itemsRef.set('teamA/distance', distance);

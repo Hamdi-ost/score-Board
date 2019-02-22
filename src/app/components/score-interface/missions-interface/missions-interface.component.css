@@ -66,7 +66,7 @@
 .panel-superior .izquierdo {
   background: linear-gradient(
     to right,
-    rgb(207, 49, 9) 0%,
+    rgb(255, 20, 20) 0%,
     rgba(255, 146, 10, 0) 100%
   );
 }
@@ -181,7 +181,7 @@
 }
 
 .inferior-boton button {
-  background-color: #19e806;
+  background-color: #fc3b19;
   border: 2px solid #fff;
   border-radius: 30px;
   padding: 2px 50px;

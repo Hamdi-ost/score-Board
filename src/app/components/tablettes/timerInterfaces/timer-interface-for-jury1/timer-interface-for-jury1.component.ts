@@ -43,6 +43,7 @@ export class TimerInterfaceForJury1Component implements OnInit {
     this.scoreService.setBonus2TeamB(false);
     this.scoreService.stopTimerTeamA(false);
     this.scoreService.stopTimerTeamB(false);
+    this.scoreService.setCube(false);
     this.scoreService.setEnd(false);
     this.scoreService.setReady(false);
     this.distance = 0;
@@ -53,6 +54,9 @@ export class TimerInterfaceForJury1Component implements OnInit {
   }
 
   start() {
-    this.scoreService.setReady(true);
+    this.scoreService.setCube(true);
+    setTimeout(() => {
+      this.scoreService.setReady(true);
+    }, 5000);
   }
 }

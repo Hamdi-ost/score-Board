@@ -48,7 +48,6 @@ export class ScoreMissionsService {
     const itemsRef = this.db.list('missionsEtage');
     itemsRef.set( 'missionEtage2', true);
     const itemsRef2 = this.db.list('etages');
-    itemsRef2.set( 'etage1', false);
     itemsRef2.set( 'etage2', true);
   }
 

@@ -1,7 +1,7 @@
 <div class="container marketing">
     <!-- Three columns of text below the carousel -->
     <div class="row">
-      <div class="col-lg-4 col-md-4">
+      <div class="col-lg-4 col-md-4 col-sm-4">
         <a (click)="addBonus1()">
           <img
             class="rounded-circle btn btn-success"
@@ -11,10 +11,10 @@
             height="140"
           />
         </a>
-        <h2>Bonus 1</h2>
+        <h2 style="text-align: center">Bonus 1</h2>
       </div>
       <!-- /.col-lg-4 -->
-      <div class="col-lg-4 col-md-4">
+      <div class="col-lg-4 col-md-4 col-sm-4">
         <a (click)="pauseTimer()">
           <img
             class="rounded-circle btn btn-danger"
@@ -24,10 +24,11 @@
             height="140"
           />
         </a>
-        <h2>Stop Timer</h2>
+        <h2 style="text-align: center">Stop Timer</h2>
       </div>
       <!-- /.col-lg-4 -->
-      <div class="col-lg-4 col-md-4">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="col-lg-4 col-md-4 ">
         <a (click)="addBonus2()">
           <img
             class="rounded-circle btn btn-success"
@@ -37,7 +38,7 @@
             height="140"
           />
         </a>
-        <h2>Bonus 2</h2>
+        <h2 style="text-align: center">Bonus 2</h2>
       </div>
       <!-- /.col-lg-4 -->
     </div>
@@ -54,7 +55,7 @@
           </div>
           <input
             [(ngModel)]="distance"
-            type="text"
+            type="number"
             class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"

@@ -34,9 +34,9 @@
 </h1>
 <div class="container">
   <div class="row">
-    <ul class="thumbnails" *ngIf="missions">
+    <ul class="thumbnails" *ngIf="missions" >
       <!-- Mission 1-->
-      <li class="span3" >
+      <li class="span3 col-sm-8"  >
         <div class="thumbnail" style="padding: 0;">
           <div style="padding:4px;">
             <img
@@ -45,7 +45,8 @@
               src="https://picsum.photos/300/200"
             />
           </div>
-          <div class="caption">
+          <div class="caption" style="text-align: center">
+            <h1 style="color: red">Mission 1</h1>
             <h2>{{ missions[0].name }}</h2>
             <div class="input-group input-group-lg">
               <div style="padding: 0" class="input-group-prepend">
@@ -55,7 +56,7 @@
               </div>
               <input
                 [(ngModel)]="piquet[0]"
-                type="text"
+                type="number"
                 class="form-control"
                 aria-label="Large"
                 aria-describedby="inputGroup-sizing-sm"
@@ -87,7 +88,7 @@
       </li>
 
       <!-- Mission 2-->
-      <li class="span3">
+      <li class="span3 col-sm-8">
         <div class="thumbnail" style="padding: 0">
           <div style="padding:4px">
             <img
@@ -96,7 +97,8 @@
               src="https://picsum.photos/300/200"
             />
           </div>
-          <div class="caption">
+          <div class="caption" style="text-align: center">
+              <h1 style="color: red">Mission 2</h1>
             <h2>{{ missions[1].name }}</h2>
             <div class="input-group input-group-lg">
               <div class="input-group-prepend">
@@ -106,7 +108,7 @@
               </div>
               <input
                 [(ngModel)]="piquet[1]"
-                type="text"
+                type="number"
                 class="form-control"
                 aria-label="Large"
                 aria-describedby="inputGroup-sizing-sm"
@@ -138,7 +140,7 @@
       </li>
 
       <!-- Mission 3-->
-      <li class="span3">
+      <li class="span3 col-sm-8">
         <div class="thumbnail" style="padding: 0">
           <div style="padding:4px">
             <img
@@ -147,7 +149,8 @@
               src="https://picsum.photos/300/200"
             />
           </div>
-          <div class="caption">
+          <div class="caption" style="text-align: center">
+              <h1 style="color: red">Mission 3</h1>
             <h2>{{ missions[2].name }}</h2>
             Aller Jaune
             <div class="input-group mb-3">
@@ -162,7 +165,7 @@
               </div>
               <input
                 [(ngModel)]="allerJ"
-                type="text"
+                type="number"
                 class="form-control"
                 aria-label="Text input with checkbox"
                 style="padding-bottom: 1.5rem"
@@ -181,7 +184,7 @@
               </div>
               <input
                 [(ngModel)]="allerR"
-                type="text"
+                type="number"
                 class="form-control"
                 aria-label="Text input with checkbox"
                 style="padding-bottom: 1.5rem"
@@ -199,7 +202,7 @@
                 </div>
               </div>
               <input
-                type="text"
+                type="number"
                 [(ngModel)]="retourR"
                 class="form-control"
                 aria-label="Text input with checkbox"
@@ -219,7 +222,7 @@
               </div>
               <input
                 [(ngModel)]="retourJ"
-                type="text"
+                type="number"
                 class="form-control"
                 aria-label="Text input with checkbox"
                 style="padding-bottom: 1.5rem"
@@ -251,7 +254,7 @@
       </li>
 
       <!-- Mission 4-->
-      <li class="span3">
+      <li class="span3 col-sm-8">
         <div class="thumbnail" style="padding: 0">
           <div style="padding:4px">
             <img
@@ -260,7 +263,8 @@
               src="https://picsum.photos/300/200"
             />
           </div>
-          <div class="caption">
+          <div class="caption" style="text-align: center" >
+            <h1 style="color: red">Mission 4</h1>
             <h2>{{ missions[3].name }}</h2>
             Phase 1
             <div class="input-group mb-3">
@@ -275,7 +279,7 @@
               </div>
               <input
               [(ngModel)]="phase[0]"
-                type="text"
+                type="number"
                 class="form-control"
                 aria-label="Text input with checkbox"
               />
@@ -293,7 +297,7 @@
                 </div>
                 <input
                 [(ngModel)]="phase[1]"
-                  type="text"
+                  type="number"
                   class="form-control"
                   aria-label="Text input with checkbox"
                 />
@@ -311,7 +315,7 @@
                   </div>
                   <input
                   [(ngModel)]="phase[2]"
-                    type="text"
+                    type="number"
                     class="form-control"
                     aria-label="Text input with checkbox"
                   />
@@ -377,3 +381,6 @@
 <div style="margin: 0 44%" class="container">
   <button class="btn btn-success" (click)="reset()">RESET</button>
 </div>
+
+
+

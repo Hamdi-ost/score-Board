@@ -1,4 +1,4 @@
-<div class="contenedorEquipo" style="background-color: green">
+<div class="contenedorEquipo" style="background-color: #009933">
     <div class="base">
       <div class="panel panel-superior">
         <div class="equipo-superior izquierdo" >
@@ -10,8 +10,7 @@
           <p class="float-izquierda"></p>
           <div class="float-derecha"></div>
         </div>
-        <div *ngIf="etages[0]" class="marcador-tiempo"><time> <countdown  [config]="{leftTime: 140}">$!m!:$!s!</countdown></time></div>
-        <div *ngIf="etages[1]" class="marcador-tiempo"><time> <countdown  [config]="{leftTime: 70}">$!m!:$!s!</countdown></time></div>
+        <div *ngIf="etages[0]" class="marcador-tiempo"><time> <countdown  [config]="{leftTime: 210}">$!m!:$!s!</countdown></time></div>
         <div class="equipo-marcador nombre">
           <p class="float-derecha"></p>
           <div class="float-izquierda"></div>
@@ -20,7 +19,7 @@
 
       <!-- Etage 1-->
       <div *ngIf="missionEtage[0] && missions && piquets" class="panel panel2 panel-inferior mission">
-        <div class="inferior-boton  float-izquierda"><a *ngFor="let a of missionsAccomplished; let i=index"><button>{{a}} ({{missions[i].score}}) <br> {{piquets[i]}} piquets touchees</button></a></div>
+        <div class="inferior-boton  float-izquierda"><a *ngFor="let a of missionsAccomplished; let i=index"><button>{{a}} ({{missions[i].score}}) <br><div class="inferior-boton  float-izquierda">{{piquets[i]}}</div>  piquets touchees</button></a></div>
       </div>
       <!-- Etage 2-->
       <div  *ngIf="missionEtage[1]" class="panel panel-inferior mission">
@@ -40,3 +39,5 @@
       </div>
     </div>
   </div>
+
+  <app-cube></app-cube>
