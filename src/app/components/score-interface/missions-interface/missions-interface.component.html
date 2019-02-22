@@ -2,7 +2,7 @@
     <div class="base">
       <div class="panel panel-superior">
         <div class="equipo-superior izquierdo" >
-          <span style="width: 50%">{{team}}</span>
+          <span style="width: 50%"><strong>{{team}}</strong> </span>
         </div>
       </div>
       <div class="panel marcadores">
@@ -10,7 +10,7 @@
           <p class="float-izquierda"></p>
           <div class="float-derecha"></div>
         </div>
-        <div *ngIf="etages[0]" class="marcador-tiempo"><time> <countdown  [config]="{leftTime: 210}">$!m!:$!s!</countdown></time></div>
+        <div *ngIf="etages[0]" class="marcador-tiempo"><time> <strong> <countdown  [config]="{leftTime: 210}">$!m!:$!s!</countdown> </strong></time></div>
         <div class="equipo-marcador nombre">
           <p class="float-derecha"></p>
           <div class="float-izquierda"></div>
@@ -31,7 +31,7 @@
           <p class="float-izquierda"></p>
           <div class="float-derecha"></div>
         </div>
-        <div class="marcador-tiempo">{{scoreTotal}}</div>
+        <div class="marcador-tiempo"> <strong> {{scoreTotal}} </strong></div>
         <div class="equipo-marcador nombre">
           <p class="float-derecha"></p>
           <div class="float-izquierda"></div>

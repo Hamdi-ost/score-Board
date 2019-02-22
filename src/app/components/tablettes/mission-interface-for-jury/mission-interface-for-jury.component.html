@@ -1,5 +1,5 @@
 <!--Insert team's name -->
-<h1 class="container" >Team: 
+<h1 class="container" >Team:
     <div class="input-group input-group-lg">
         <div style="padding: 0" class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-lg"
@@ -23,13 +23,20 @@
       </div></h1>
 <hr>
 <!--  ETAGE 1 -->
-<h1 class="container" >Etage 1 
+<h1 class="container" >Etage 1
     <button
     type="button"
     class="btn btn-success btn-lg"
     (click)="startEtage1()"
     >
     Start
+    </button>
+    <button
+    type="button"
+    class="btn btn-warning btn-lg"
+    (click)="reset()"
+    >
+    Reset
     </button>
 </h1>
 <div class="container">
@@ -351,7 +358,7 @@
 <hr />
 
 <!--  ETAGE 2 -->
-<h1 class="container" >Etage 2 
+<h1 class="container" >Etage 2
     <button type="button" class="btn btn-success btn-lg" (click)="startEtage2()">
       Start
     </button>
@@ -377,10 +384,5 @@
   </div>
 </section>
 <hr />
-
-<div style="margin: 0 44%" class="container">
-  <button class="btn btn-success" (click)="reset()">RESET</button>
-</div>
-
 
 

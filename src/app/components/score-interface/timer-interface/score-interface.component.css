@@ -6,12 +6,17 @@
 } */
 
 
-  
+
   .contenedorEquipo {
-    height: 100vh;
-    margin: 10px 0px 15px 0px;
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  padding-top: 900px
   }
-  
+
   .base {
     width: 90%;
     margin: 0px auto;
@@ -23,7 +28,7 @@
     font-family: bebas, Verdana, Geneva, sans-serif;
     color: white;
   }
-  
+
   .panel {
     width: 100%;
     box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 1);
@@ -34,7 +39,7 @@
     top: 0px;
     height: 75px;
   }
-  
+
   .equipo-superior {
     width: 50%;
     float: left;
@@ -42,41 +47,41 @@
     height: 100%;
     overflow: hidden;
   }
-  
+
   .equipo-superior img {
     width: 100px;
     margin: 0px 20px;
   }
-  
+
       .float-izquierda{
           float: left !important;
       }
       .float-derecha{
           float: right !important;
       }
-  
+
   .panel-superior .izquierdo {
-    background: linear-gradient(to right, rgb(255, 186, 37) 0%, rgba(255, 146, 10, 0) 100%);
+    background: linear-gradient(to right, rgb(133, 131, 32) 0%, rgba(255, 146, 10, 0) 100%);
   }
-  
+
   .panel-superior .izquierdo span {
     float: left;
   }
-  
+
   .panel-superior .derecho span {
     float: right;
   }
-  
+
   .panel-superior .derecho {
     background: linear-gradient(to right, rgba(30, 87, 153, 0) 0%, rgba(30, 87, 153, 1) 53%, rgba(30, 87, 153, 1) 100%);
   }
-  
+
   .estadisticas p {
     height: 0px;
     font-size: 25px;
     margin-top: 5px;
   }
-  
+
   .marcadores {
     width: 100%;
     position: relative;
@@ -84,15 +89,15 @@
     overflow: hidden;
     box-shadow: 0px 0px 0px 2px #fff;
   }
-  
+
   .marcadores .derecho {
     background: rgba(30, 87, 153, 1);
     box-shadow: 0px 0px 0px 3px #000 inset, 0px 0px 25px 0px #000 inset;
     border-radius: 0px 10px 10px 0px;
   }
-  
+
   .marcadores .izquierdo {
-    background: rgb(255, 186, 37);
+    background: rgb(170, 25, 86);
     box-shadow: 0px 0px 0px 3px #000 inset, 0px 0px 25px 0px #000 inset;
     border-radius: 10px 0px 0px 10px;
   }
@@ -102,34 +107,34 @@
     box-shadow: 0px 0px 0px 3px #000 inset, 0px 0px 25px 0px #000 inset;
     border-radius: 10px 0px 0px 10px;
   }
-  
+
   .marcadores div {
     float: left;
     height: 100%;
     line-height: 35px;
     text-align: center;
   }
-  
+
   .marcadores div p {
     margin: 10px 0px 0px 5px;
     width: 60%;
     font-size: 24px;
   }
-  
+
   .equipo-marcador {
     width: 33%;
   }
-  
+
   .marcador-tiempo {
     width: 34%;
     font-size: 26px;
     line-height: 50px !important;
   }
-  
+
   .marcador-tiempo time {
     line-height: 50px;
   }
-  
+
   .marcador-goles {
     background: white;
     width: 25%;
@@ -142,27 +147,27 @@
     font-size: 24px;
     /*margin-left: 33px;*/
   }
-  
+
   .equipo-inferor {
     width: 33%;
     /* line-height: 38px; */
     /* vertical-align: middle; */
     text-align: center;
   }
-  
+
   .inferior-boton {
     width: 34%;
   }
-  
+
   .imagen-estrella {
     width: 30px;
     margin: 20px 0px 0px 1px;
   }
-  
+
   .inferior-boton {
     text-align: center;
   }
-  
+
   .inferior-boton button {
     background-color: #e8065b;
     border: 2px solid #fff;
@@ -175,21 +180,21 @@
     font-size: 20px;
     transition: all 0.5s ease-out;
   }
-  
+
   .inferior-boton button:hover {
     background-color: #e8065b;
     box-shadow: 0px 0px 3px 1px black inset;
   }
-  
+
   .inferior-boton button:active {
     background-color: #e8065b;
     box-shadow: 0px 0px 0px 0px black inset;
   }
-  
+
   .estadisticas {
     text-align: center;
   }
-  
+
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .base {
       width: 90%;
@@ -345,7 +350,7 @@
   .large{
     font-size: 30px;
     margin: 5px;
-  
+
   }
   .medium{
     font-size: 20px;
@@ -353,14 +358,14 @@
   .small{
     font-size: 30px;
   }
-  
+
   .controlButtons{
     text-align: center;
   }
   .marginClass{
     margin: 5px;
     display: inline-block;
-  
+
   }
 
   .countdown:before {

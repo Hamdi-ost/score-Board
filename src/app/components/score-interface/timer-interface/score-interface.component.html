@@ -1,22 +1,21 @@
 <div class="contenedorEquipo" style="background-color: #009933">
   <div class="base">
-    <div class="panel panel-superior">
-      <div class="equipo-superior izquierdo"></div>
-      <div class="equipo-superior derecho"></div>
-    </div>
+
     <div class="panel marcadores">
       <div class="equipo-marcador nombre izquierdo">
-        <p class="float-izquierda">{{ team1 }}</p>
+        <p class="float-izquierda"><strong>{{ team1 }}</strong> </p>
       </div>
       <div class="marcador-tiempo">
         <time>
-          <countdown *ngIf="ready" [config]="{ leftTime: 120 }"
+         <strong> <countdown *ngIf="ready" [config]="{ leftTime: 120 }"
             >$!m!:$!s!</countdown
-          ></time
+          >
+        </strong>
+          </time
         >
       </div>
       <div class="equipo-marcador nombre derecho">
-        <p class="float-derecha">{{ team2 }}</p>
+        <p class="float-derecha"><strong>{{ team2 }}</strong></p>
       </div>
     </div>
     <div class="panel panel-inferior">
@@ -26,18 +25,18 @@
       >
         <div *ngIf="ready">
           <div class="marginClass">
-            <span class="large"> {{ minute }}</span>
+            <span class="large"> <strong>{{ minute }}</strong> </span>
             <span class="large">:</span>
           </div>
           <div class="marginClass">
-            <span class="large"> {{ second }}</span>
+            <span class="large"> <strong>{{ second }}</strong> </span>
             <span class="large">:</span>
           </div>
           <div class="marginClass">
             <span class="small" *ngIf="millisecond < 10">0</span>
-            <span class="small"> {{ millisecond }}</span>
+            <span class="small"> <strong>{{ millisecond }}</strong> </span>
           </div>
-          <span *ngIf="bonusTeamA !== 0">(-{{bonusTeamA}} secondes)</span>
+          <span *ngIf="bonusTeamA !== 0"><strong>(-{{bonusTeamA}} secondes)</strong></span>
         </div>
       </div>
       <div style="margin-top: 10px" class="inferior-boton float-izquierda">
@@ -49,29 +48,29 @@
       >
         <div *ngIf="ready">
           <div class="marginClass">
-            <span class="large"> {{ minuteB }}</span>
+            <span class="large"> <strong>{{ minuteB }}</strong> </span>
             <span class="large">:</span>
           </div>
           <div class="marginClass">
-            <span class="large"> {{ secondB }}</span>
+            <span class="large"><strong>{{ secondB }}</strong> </span>
             <span class="large">:</span>
           </div>
           <div class="marginClass">
             <span class="small" *ngIf="millisecond < 10">0</span>
-            <span class="small"> {{ millisecondB }}</span>
+            <span class="small"><strong>{{ millisecondB }}</strong> </span>
           </div>
-          <span *ngIf="bonusTeamB !== 0" >(-{{bonusTeamB}} secondes)</span>
+          <span *ngIf="bonusTeamB !== 0" ><strong> (-{{bonusTeamB}} secondes) </strong></span>
         </div>
       </div>
     </div>
     <div *ngIf="end" class="panel marcadores" >
       <div class="equipo-marcador nombre score">
-        <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamA == 0"> Temps: {{finalTimeTeamA}}</span> <span *ngIf="distanceTeamA != 0"> - Distance: {{distanceTeamA}}m</span></p>
+        <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamA == 0"><strong>Temps: {{finalTimeTeamA}}</strong> </span> <span *ngIf="distanceTeamA != 0"> - Distance: {{distanceTeamA}}m</span></p>
       </div>
       <div class="marcador-tiempo">
       </div>
       <div class="equipo-marcador nombre score">
-          <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamB == 0"> Temps: {{finalTimeTeamB}}</span> <span *ngIf="distanceTeamB != 0"> - Distance: {{distanceTeamB}}m</span></p>
+          <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamB == 0"><strong>Temps: {{finalTimeTeamB}}</strong> </span> <span *ngIf="distanceTeamB != 0"> - Distance: {{distanceTeamB}}m</span></p>
         </div>
     </div>
   </div>

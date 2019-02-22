@@ -6,9 +6,15 @@
 } */
 
 .contenedorEquipo {
-  height: 100vh;
-  margin: 10px 0px 15px 0px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  padding-top: 900px
 }
+
 
 .base {
   width: 90%;
@@ -184,7 +190,7 @@
   background-color: #fc3b19;
   border: 2px solid #fff;
   border-radius: 30px;
-  padding: 2px 50px;
+  padding: 2px 30px;
   box-shadow: 0px 0px 10px 2px black inset;
   color: #fff;
   font-weight: 600;

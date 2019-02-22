@@ -91,15 +91,15 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     }
     if (this.allerRCheck) {
       scoreM3 = scoreM3 + (20 - this.allerR * 5);
-      piquetsTouches = piquetsTouches + ' | ' + this.allerR;
+      piquetsTouches = piquetsTouches + '|' + this.allerR;
     }
     if (this.retourRCheck) {
       scoreM3 = scoreM3 + (20 - this.retourR * 5);
-      piquetsTouches = piquetsTouches + ' | ' + this.retourR;
+      piquetsTouches = piquetsTouches + '|' + this.retourR;
     }
     if (this.retourJCheck) {
       scoreM3 = scoreM3 + (15 - this.retourJ * 5);
-      piquetsTouches = piquetsTouches + ' | ' + this.retourJ;
+      piquetsTouches = piquetsTouches + '|' + this.retourJ;
     }
     if (scoreM3 < 0) {
       scoreM3 = 0;
@@ -134,11 +134,11 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       } else {
         scoreM4 = scoreM4 + (25 - this.phase[1] * 5);
       }
-      piquetsTouches = piquetsTouches + ' | ' + this.phase[1];
+      piquetsTouches = piquetsTouches + '|' + this.phase[1];
     }
     if (this.phaseCheck[2]) {
       scoreM4 = scoreM4 + (25 - this.phase[2] * 5);
-      piquetsTouches = piquetsTouches + ' | ' + this.phase[2];
+      piquetsTouches = piquetsTouches + '|' + this.phase[2];
     }
     if (scoreM4 < 0) {
       scoreM4 = 0;
