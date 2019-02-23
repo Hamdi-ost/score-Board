@@ -8,7 +8,7 @@ import { ScoreService } from 'src/app/services/score.service';
 })
 export class TimerInterfaceForJury2Component implements OnInit {
   distance;
-
+  disqualifierTeam;
   constructor(
     private scoreService: ScoreService
   ) {
@@ -33,7 +33,13 @@ export class TimerInterfaceForJury2Component implements OnInit {
   }
 
   disqualifier() {
+    this.disqualifierTeam = true;
     this.scoreService.disqualifierTeamB(true);
+  }
+
+  qualifier() {
+    this.disqualifierTeam = false;
+    this.scoreService.disqualifierTeamB(false);
   }
 
 }

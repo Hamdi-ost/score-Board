@@ -23,11 +23,12 @@ export class MissionsInterfaceComponent implements OnInit {
   missionEtage = [];
   nbTours = [];
   piquets = [];
-
+  disqualifier;
   constructor(
     private scoreService: ScoreMissionsService,
     private missionsService: MissionsService,
   ) {
+    this.scoreService.getMissionDis().snapshotChanges().subscribe(data => this.disqualifier = data[0].payload.toJSON());
     this.scoreService
       .ready()
       .snapshotChanges()

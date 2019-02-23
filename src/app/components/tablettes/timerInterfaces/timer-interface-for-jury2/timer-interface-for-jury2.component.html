@@ -27,16 +27,26 @@
         <h2 style="text-align: center">Stop Timer</h2>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-3">
-          <a (click)="disqualifier()">
-            <img
-              class="rounded-circle btn btn-warning"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-              alt="Generic placeholder image"
-              width="140"
-              height="140"
-            />
-          </a>
-          <h2 style="text-align: center">Out</h2>
+          <a *ngIf="!disqualifierTeam" (click)="disqualifier()">
+              <img
+                class="rounded-circle btn btn-warning"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                alt="Generic placeholder image"
+                width="140"
+                height="140"
+              />
+            </a>
+            <a *ngIf="disqualifierTeam" (click)="qualifier()">
+                <img
+                  class="rounded-circle btn btn-warning"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                  alt="Generic placeholder image"
+                  width="140"
+                  height="140"
+                />
+              </a>
+          <h2 style="text-align: center" *ngIf="!disqualifierTeam">Out</h2>
+          <h2 style="text-align: center" *ngIf="disqualifierTeam">In</h2>
         </div>
       <!-- /.col-lg-4 -->
       <div class="col-lg-4 col-md-4 col-sm-3">

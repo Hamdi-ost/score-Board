@@ -30,7 +30,7 @@ export class MissionInterfaceForJuryComponent implements OnInit {
   nbTours = 0;
   teamName;
   disabled = [true, true, true, true, true];
-
+  missionDisqualif;
   constructor(
     private missionsService: MissionsService,
     private scoreMission: ScoreMissionsService,
@@ -218,5 +218,15 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.scoreMission.resetTime();
     this.scoreMission.resetEtage();
     this.scoreService.setCube(false);
+  }
+
+  disqualifier() {
+    this.missionDisqualif = true;
+    this.scoreMission.missionDisqualif(true);
+  }
+
+  qualifier() {
+    this.missionDisqualif = false;
+    this.scoreMission.missionDisqualif(false);
   }
 }

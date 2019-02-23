@@ -95,4 +95,14 @@ export class ScoreMissionsService {
     const itemsRef = this.db.list('categories/cat3/teams');
     itemsRef.set('team1', team);
   }
+
+  missionDisqualif(dis) {
+    const itemsRef = this.db.list('missionDisqualif');
+    itemsRef.set('missionDisqualif', dis);
+  }
+
+  getMissionDis() {
+    this.teamsRef = this.db.list('missionDisqualif');
+    return this.teamsRef;
+  }
 }
