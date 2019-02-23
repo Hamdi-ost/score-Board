@@ -78,10 +78,13 @@ export class ScoreInterfaceComponent implements OnInit {
               const timeString = data[4].payload.toJSON();
               const time: any = this.toDate(timeString, 'm:s:ms');
               if (bonus1 && bonus2) {
-                const timeFinal = new Date(time - 10000);
+                const timeFinal = new Date(time - 8000);
                 this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
-              } else if (bonus1 || bonus2) {
-                const timeFinal = new Date(time - 5000);
+              } else if (bonus1) {
+                const timeFinal = new Date(time + 2000);
+                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+              } else if (bonus2) {
+                const timeFinal = new Date(time  - 10000);
                 this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
               } else {
                 const timeFinal = new Date(time);
@@ -107,10 +110,13 @@ export class ScoreInterfaceComponent implements OnInit {
               const timeString = data[4].payload.toJSON();
               const time: any = this.toDate(timeString, 'm:s:ms');
               if (bonus1 && bonus2) {
-                const timeFinal = new Date(time - 10000);
+                const timeFinal = new Date(time - 8000);
                 this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
-              } else if (bonus1 || bonus2) {
-                const timeFinal = new Date(time - 5000);
+              } else if (bonus1) {
+                const timeFinal = new Date(time + 2000);
+                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+              } else if (bonus2) {
+                const timeFinal = new Date(time  - 10000);
                 this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
               } else {
                 const timeFinal = new Date(time);
@@ -167,8 +173,14 @@ export class ScoreInterfaceComponent implements OnInit {
       .subscribe(bonus => {
         const bon1 = bonus[0].payload.toJSON();
         const bon2 = bonus[1].payload.toJSON();
-        if ((bon1 && !bon2) || (bon2 && bon1) || (bon2 && !bon1)) {
-          this.bonusTeamA = this.bonusTeamA + 5;
+        if (bon1 && !bon2) {
+          this.bonusTeamA =  2;
+        }
+        if (bon2 && bon1) {
+          this.bonusTeamA = - 8;
+        }
+        if (!bon1 && bon2) {
+          this.bonusTeamA = - 10;
         }
         if (!bon2 && !bon1) {
           this.bonusTeamA = 0;
@@ -193,8 +205,14 @@ export class ScoreInterfaceComponent implements OnInit {
       .subscribe(bonus => {
         const bon1 = bonus[0].payload.toJSON();
         const bon2 = bonus[1].payload.toJSON();
-        if ((bon1 && !bon2) || (bon2 && bon1) || (bon2 && !bon1)) {
-          this.bonusTeamB = this.bonusTeamB + 5;
+        if (bon1 && !bon2) {
+          this.bonusTeamB =  2;
+        }
+        if (bon2 && bon1) {
+          this.bonusTeamB = - 8;
+        }
+        if (!bon1 && bon2) {
+          this.bonusTeamB = - 10;
         }
         if (!bon2 && !bon1) {
           this.bonusTeamB = 0;

@@ -169,7 +169,6 @@ export class MissionInterfaceForJuryComponent implements OnInit {
       scoreTotal: this.scoreToral,
       piquetTouches: this.piquet
     };
-    console.log(team);
     this.scoreMission.UpdateTeams(team);
   }
 
@@ -218,6 +217,8 @@ export class MissionInterfaceForJuryComponent implements OnInit {
     this.scoreMission.resetTime();
     this.scoreMission.resetEtage();
     this.scoreService.setCube(false);
+    this.missionDisqualif = false;
+    this.scoreMission.missionDisqualif(false);
   }
 
   disqualifier() {

@@ -17,11 +17,11 @@ export class CubeComponent implements OnInit {
 
   ngOnInit() {
     this.scoreService
-    .cube()
-    .snapshotChanges()
-    .subscribe(data => {
-      this.cube = data[0].payload.toJSON();
-    });
+      .cube()
+      .snapshotChanges()
+      .subscribe(data => {
+        this.cube = data[0].payload.toJSON();
+      });
   }
 
 
