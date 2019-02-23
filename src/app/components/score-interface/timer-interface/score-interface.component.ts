@@ -24,6 +24,8 @@ export class ScoreInterfaceComponent implements OnInit {
   distanceTeamB;
   finalTimeTeamA;
   finalTimeTeamB;
+  disqualifierTeamA;
+  disqualifierTeamB;
   // ---------------------- //
   controlBtnText = 'Start';
   hour = 0;
@@ -45,7 +47,11 @@ export class ScoreInterfaceComponent implements OnInit {
   intervalIdB;
 
   constructor(private scoreService: ScoreService) {
-      this.scoreService
+    this.scoreService.getDisqualifierTeamA().snapshotChanges().subscribe(
+      data => this.disqualifierTeamA = data[0].payload.toJSON());
+    this.scoreService.getDisqualifierTeamB().snapshotChanges().subscribe(
+      data => this.disqualifierTeamA = data[1].payload.toJSON());
+    this.scoreService
       .ready()
       .snapshotChanges()
       .subscribe(data => {
@@ -55,7 +61,7 @@ export class ScoreInterfaceComponent implements OnInit {
         this.resetB();
         this.onStartB();
       });
-      // TEAM A
+    // TEAM A
     this.scoreService
       .end()
       .snapshotChanges()
@@ -84,8 +90,8 @@ export class ScoreInterfaceComponent implements OnInit {
             });
         }
       });
-      // Team B
-      this.scoreService
+    // Team B
+    this.scoreService
       .end()
       .snapshotChanges()
       .subscribe(end => {
@@ -155,7 +161,7 @@ export class ScoreInterfaceComponent implements OnInit {
           clearInterval(this.intervalId);
         }
       });
-      this.scoreService
+    this.scoreService
       .getBonusTeamA()
       .snapshotChanges()
       .subscribe(bonus => {
@@ -168,8 +174,8 @@ export class ScoreInterfaceComponent implements OnInit {
           this.bonusTeamA = 0;
         }
       });
-      // team B
-      this.scoreService
+    // team B
+    this.scoreService
       .getPauseTeamB()
       .snapshotChanges()
       .subscribe(pause => {
@@ -181,7 +187,7 @@ export class ScoreInterfaceComponent implements OnInit {
           clearInterval(this.intervalIdB);
         }
       });
-      this.scoreService
+    this.scoreService
       .getBonusTeamB()
       .snapshotChanges()
       .subscribe(bonus => {
@@ -259,7 +265,7 @@ export class ScoreInterfaceComponent implements OnInit {
       this.hour++;
     }
 
-    if (this.minute === 2 ) {
+    if (this.minute === 2) {
       this.onPause();
     }
   }
@@ -304,7 +310,7 @@ export class ScoreInterfaceComponent implements OnInit {
       this.hourB++;
     }
 
-    if (this.minuteB === 2 ) {
+    if (this.minuteB === 2) {
       this.onPauseB();
     }
   }

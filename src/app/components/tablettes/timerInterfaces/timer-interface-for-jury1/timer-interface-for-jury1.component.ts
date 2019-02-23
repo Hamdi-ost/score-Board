@@ -14,6 +14,7 @@ export class TimerInterfaceForJury1Component implements OnInit {
   constructor(
     private scoreService: ScoreService
   ) {
+
   }
 
   ngOnInit() {}
@@ -46,6 +47,8 @@ export class TimerInterfaceForJury1Component implements OnInit {
     this.scoreService.setCube(false);
     this.scoreService.setEnd(false);
     this.scoreService.setReady(false);
+    this.scoreService.setDistanceTeamA(false);
+    this.scoreService.setDistanceTeamB(false);
     this.distance = 0;
   }
 
@@ -58,5 +61,9 @@ export class TimerInterfaceForJury1Component implements OnInit {
     setTimeout(() => {
       this.scoreService.setReady(true);
     }, 5000);
+  }
+
+  disqualifier() {
+    this.scoreService.disqualifierTeamA(true);
   }
 }

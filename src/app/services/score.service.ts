@@ -104,8 +104,27 @@ export class ScoreService {
     return this.teamsRef;
   }
 
+  disqualifierTeamA(dis) {
+    const itemsRef = this.db.list('disqualifier');
+    itemsRef.set('teamA', dis);
+  }
+
+  getDisqualifierTeamA() {
+    this.teamsRef = this.db.list('disqualifier');
+    return this.teamsRef;
+  }
+
   // TEAM B //
 
+  disqualifierTeamB(dis) {
+    const itemsRef = this.db.list('disqualifier');
+    itemsRef.set('teamB', dis);
+  }
+
+  getDisqualifierTeamB() {
+    this.teamsRef = this.db.list('disqualifier');
+    return this.teamsRef;
+  }
 
 
   setDistanceTeamB(distance) {

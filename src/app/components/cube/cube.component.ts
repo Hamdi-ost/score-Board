@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ScoreService } from 'src/app/services/score.service';
 
 @Component({
@@ -7,8 +7,13 @@ import { ScoreService } from 'src/app/services/score.service';
   styleUrls: ['./cube.component.css']
 })
 export class CubeComponent implements OnInit {
+  @ViewChild('audioOption') audioPlayerRef: ElementRef;
+
+
   cube;
-  constructor(private scoreService: ScoreService) { }
+
+  constructor(private scoreService: ScoreService) {
+  }
 
   ngOnInit() {
     this.scoreService
