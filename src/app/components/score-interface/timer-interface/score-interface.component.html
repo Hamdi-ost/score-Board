@@ -70,7 +70,7 @@
       <div class="marcador-tiempo">
       </div>
       <div class="equipo-marcador nombre score">
-          <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamB == 0"><strong>Temps: {{finalTimeTeamB}}</strong> </span> <span *ngIf="distanceTeamB != 0"> - Distance: {{distanceTeamB}}m</span></p>
+          <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamB == 0 && !disqualifierTeamB"><strong>Temps: {{finalTimeTeamB}}</strong> </span> <span *ngIf="distanceTeamB != 0 && !disqualifierTeamB"> - Distance: {{distanceTeamB}}m</span> <span *ngIf="disqualifierTeamB"><strong>Disqualifier</strong> </span></p>
         </div>
     </div>
   </div>

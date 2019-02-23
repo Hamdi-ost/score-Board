@@ -47,8 +47,8 @@ export class TimerInterfaceForJury1Component implements OnInit {
     this.scoreService.setCube(false);
     this.scoreService.setEnd(false);
     this.scoreService.setReady(false);
-    this.scoreService.setDistanceTeamA(false);
-    this.scoreService.setDistanceTeamB(false);
+    this.scoreService.disqualifierTeamA(false);
+    this.scoreService.disqualifierTeamB(false);
     this.distance = 0;
   }
 

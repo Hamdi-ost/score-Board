@@ -32,4 +32,8 @@ export class TimerInterfaceForJury2Component implements OnInit {
     this.scoreService.stopTimerTeamB(true);
   }
 
+  disqualifier() {
+    this.scoreService.disqualifierTeamB(true);
+  }
+
 }

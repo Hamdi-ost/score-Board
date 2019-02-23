@@ -50,7 +50,7 @@ export class ScoreInterfaceComponent implements OnInit {
     this.scoreService.getDisqualifierTeamA().snapshotChanges().subscribe(
       data => this.disqualifierTeamA = data[0].payload.toJSON());
     this.scoreService.getDisqualifierTeamB().snapshotChanges().subscribe(
-      data => this.disqualifierTeamA = data[1].payload.toJSON());
+      data => this.disqualifierTeamB = data[1].payload.toJSON());
     this.scoreService
       .ready()
       .snapshotChanges()
