@@ -17,6 +17,7 @@ export class ScoreInterfaceComponent implements OnInit {
   time1;
   time2;
   ready;
+  ready2;
   end;
   bonusTeamA = 0;
   bonusTeamB = 0;
@@ -56,6 +57,7 @@ export class ScoreInterfaceComponent implements OnInit {
       .snapshotChanges()
       .subscribe(data => {
         this.ready = data[0].payload.toJSON();
+        this.ready2 = data[1].payload.toJSON();
         this.reset();
         this.onStart();
         this.resetB();
@@ -76,19 +78,20 @@ export class ScoreInterfaceComponent implements OnInit {
               const bonus2 = data[1].payload.toJSON();
               this.distanceTeamA = data[2].payload.toJSON();
               const timeString = data[4].payload.toJSON();
-              const time: any = this.toDate(timeString, 'm:s:ms');
+              const time: any = this.toDate(timeString, 'm:s');
               if (bonus1 && bonus2) {
                 const timeFinal = new Date(time - 8000);
-                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+                console.log(timeFinal);
+                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds();
               } else if (bonus1) {
                 const timeFinal = new Date(time + 2000);
-                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds();
               } else if (bonus2) {
                 const timeFinal = new Date(time  - 10000);
-                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds();
               } else {
                 const timeFinal = new Date(time);
-                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+                this.finalTimeTeamA = timeFinal.getMinutes() + ':' + timeFinal.getSeconds();
               }
             });
         }
@@ -108,20 +111,21 @@ export class ScoreInterfaceComponent implements OnInit {
               const bonus2 = data[1].payload.toJSON();
               this.distanceTeamB = data[2].payload.toJSON();
               const timeString = data[4].payload.toJSON();
-              const time: any = this.toDate(timeString, 'm:s:ms');
+              const time: any = this.toDate(timeString, 'm:s');
               if (bonus1 && bonus2) {
                 const timeFinal = new Date(time - 8000);
-                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds();
               } else if (bonus1) {
                 const timeFinal = new Date(time + 2000);
-                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds();
               } else if (bonus2) {
                 const timeFinal = new Date(time  - 10000);
-                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds();
               } else {
                 const timeFinal = new Date(time);
-                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds() + ':' + timeFinal.getMilliseconds();
+                this.finalTimeTeamB = timeFinal.getMinutes() + ':' + timeFinal.getSeconds();
               }
+
             });
         }
       });
@@ -129,10 +133,10 @@ export class ScoreInterfaceComponent implements OnInit {
 
   toDate(dStr, format) {
     const now = new Date();
-    if (format === 'm:s:ms') {
+    if (format === 'm:s') {
       now.setMinutes(dStr.split(':')[0]);
       now.setSeconds(dStr.split(':')[1]);
-      now.setMilliseconds(dStr.split(':')[2].split(' ')[0]);
+
       return now.getTime();
     } else {
       return 'Invalid Format';
@@ -162,7 +166,7 @@ export class ScoreInterfaceComponent implements OnInit {
         this.pause = pause[0].payload.toJSON();
         if (this.pause) {
           this.scoreService.setTimerTeamA(
-            this.minute + ':' + this.second + ':' + this.millisecond
+            this.second + ':' + this.millisecond
           );
           clearInterval(this.intervalId);
         }
@@ -194,7 +198,7 @@ export class ScoreInterfaceComponent implements OnInit {
         this.pauseB = pause[1].payload.toJSON();
         if (this.pauseB) {
           this.scoreService.setTimerTeamB(
-            this.minuteB + ':' + this.secondB + ':' + this.millisecondB
+            this.secondB + ':' + this.millisecondB
           );
           clearInterval(this.intervalIdB);
         }
@@ -250,7 +254,7 @@ export class ScoreInterfaceComponent implements OnInit {
     this.start = true;
     this.intervalId = setInterval(() => {
       this.updateTime();
-    }, 10);
+    }, 1000);
   }
 
   onPause() {
@@ -268,7 +272,7 @@ export class ScoreInterfaceComponent implements OnInit {
   updateTime() {
     this.millisecond += this.x;
 
-    if (this.millisecond > 99) {
+    if (this.millisecond > 59) {
       this.millisecond = 0;
       this.second++;
     }
@@ -278,12 +282,7 @@ export class ScoreInterfaceComponent implements OnInit {
       this.minute++;
     }
 
-    if (this.minute > 59) {
-      this.minute = 0;
-      this.hour++;
-    }
-
-    if (this.minute === 2) {
+    if (this.second === 2) {
       this.onPause();
     }
   }
@@ -303,17 +302,18 @@ export class ScoreInterfaceComponent implements OnInit {
     this.startB = true;
     this.intervalIdB = setInterval(() => {
       this.updateTimeB();
-    }, 10);
+    }, 1000);
   }
 
   onPauseB() {
     clearInterval(this.intervalIdB);
   }
 
+
   updateTimeB() {
     this.millisecondB += this.xB;
 
-    if (this.millisecondB > 99) {
+    if (this.millisecondB > 59) {
       this.millisecondB = 0;
       this.secondB++;
     }
@@ -323,12 +323,7 @@ export class ScoreInterfaceComponent implements OnInit {
       this.minuteB++;
     }
 
-    if (this.minuteB > 59) {
-      this.minuteB = 0;
-      this.hourB++;
-    }
-
-    if (this.minuteB === 2) {
+    if (this.secondB === 2) {
       this.onPauseB();
     }
   }

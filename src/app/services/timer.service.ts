@@ -49,7 +49,7 @@ export class TimerService {
   updateTime() {
     this.millisecond += this.x;
 
-    if (this.millisecond > 99) {
+    if (this.millisecond > 999) {
       this.millisecond = 0;
       this.second++;
     }

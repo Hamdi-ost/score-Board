@@ -25,8 +25,6 @@
       >
         <div *ngIf="ready">
           <div class="marginClass">
-            <span class="large"> <strong>{{ minute }}</strong> </span>
-            <span class="large">:</span>
           </div>
           <div class="marginClass">
             <span class="large"> <strong>{{ second }}</strong> </span>
@@ -48,8 +46,6 @@
       >
         <div *ngIf="ready">
           <div class="marginClass">
-            <span class="large"> <strong>{{ minuteB }}</strong> </span>
-            <span class="large">:</span>
           </div>
           <div class="marginClass">
             <span class="large"><strong>{{ secondB }}</strong> </span>
@@ -65,12 +61,12 @@
     </div>
     <div *ngIf="end" class="panel marcadores" >
       <div class="equipo-marcador nombre score">
-        <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamA == 0 && !disqualifierTeamA"><strong>Temps: {{finalTimeTeamA}}</strong> </span> <span *ngIf="distanceTeamA != 0 && !disqualifierTeamA"> - Distance: {{distanceTeamA}}m</span> <span *ngIf="disqualifierTeamA"><strong>Disqualifié</strong> </span></p>
+        <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamA == 0 && !disqualifierTeamA"><strong>Temps: {{finalTimeTeamA}}</strong> </span> <span *ngIf="distanceTeamA != 0 && !disqualifierTeamA"> - Distance: {{distanceTeamA}}m</span> <span *ngIf="disqualifierTeamA"><strong>Disqualifiée</strong> </span></p>
       </div>
       <div class="marcador-tiempo">
       </div>
       <div class="equipo-marcador nombre score">
-          <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamB == 0 && !disqualifierTeamB"><strong>Temps: {{finalTimeTeamB}}</strong> </span> <span *ngIf="distanceTeamB != 0 && !disqualifierTeamB"> - Distance: {{distanceTeamB}}m</span> <span *ngIf="disqualifierTeamB"><strong>Disqualifié</strong> </span></p>
+          <p class="float-izquierda" style="margin-left: 70px"> <span *ngIf="distanceTeamB == 0 && !disqualifierTeamB"><strong>Temps: {{finalTimeTeamB}}</strong> </span> <span *ngIf="distanceTeamB != 0 && !disqualifierTeamB"> - Distance: {{distanceTeamB}}m</span> <span *ngIf="disqualifierTeamB"><strong>Disqualifiée</strong> </span></p>
         </div>
     </div>
   </div>

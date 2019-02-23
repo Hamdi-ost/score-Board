@@ -42,6 +42,11 @@ export class ScoreService {
     itemsRef.set('ready', ready);
   }
 
+  setReady2(ready) {
+    const itemsRef = this.db.list('ready');
+    itemsRef.set('ready2', ready);
+  }
+
   setCube(ready) {
     const itemsRef = this.db.list('cube');
     itemsRef.set('cube', ready);
